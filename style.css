@@ -173,14 +173,13 @@ table tr td{
     font-size: 15px;
 }
 
-table tr td:hover{
+table tr td:hover:not(.excessao){
     background-color: black;
     color: white;
-    font-weight: bold;
     cursor: pointer;
 }
 
-.elementos-pressionados{
+.elementos-pressionados:not(.excessao){
     background-color: black;
     color: white;
     font-weight: bold;
