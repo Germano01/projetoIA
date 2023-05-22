@@ -8,7 +8,7 @@ body{
     background-color: white;
 }
 
-#elementoSelecionado {
+#elementoSelecionadoInicial, #elementoSelecionadoFinal {
     width: 10%;
     height: 20%;
     border-radius: 15px;
@@ -19,6 +19,16 @@ body{
     transform: translate(-50%, -50%);
     text-align: center;
     font-weight: bold;
+}
+
+#elementoSelecionadoInicial{
+    top: 50%;
+    left: 30%;
+}
+
+#elementoSelecionadoFinal{
+    top: 50%;
+    right: 30%;
 }
 
 .separador {
@@ -168,6 +178,12 @@ table tr td:hover{
     color: white;
     font-weight: bold;
     cursor: pointer;
+}
+
+.elementos-pressionados{
+    background-color: black;
+    color: white;
+    font-weight: bold;
 }
 
 /*Fomatação - Dimensão Colunas*/
