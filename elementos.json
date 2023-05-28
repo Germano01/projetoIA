@@ -48,682 +48,572 @@
       "massaAtomica": 14.01,
       "adjacentes" : ["C", "P", "O"]
     },
-
-
-
-
-
-
-
-
-
-
-    
     "O": {
       "numeroAtomico": 8,
       "simbolo": "O",
       "nome": "Oxigênio",
-      "massaAtomica": 16.00
+      "massaAtomica": 16.00,
+      "adjacentes" : ["N", "S", "F"]
     },
     "F": {
       "numeroAtomico": 9,
       "simbolo": "F",
       "nome": "Flúor",
-      "massaAtomica": 19.00
+      "massaAtomica": 19.00,
+      "adjacentes" : ["O", "Cl", "Ne"]
     },
     "Ne": {
       "numeroAtomico": 10,
       "simbolo": "Ne",
       "nome": "Neônio",
-      "massaAtomica": 20.18
+      "massaAtomica": 20.18,
+      "adjacentes" : ["He", "F", "Ar"]
     },
     "Na": {
       "numeroAtomico": 11,
       "simbolo": "Na",
       "nome": "Sódio",
-      "massaAtomica": 22.99
+      "massaAtomica": 22.99,
+      "adjacentes" : ["Li", "Mg", "K"]
     },
     "Mg": {
       "numeroAtomico": 12,
       "simbolo": "Mg",
       "nome": "Magnésio",
-      "massaAtomica": 24.31
+      "massaAtomica": 24.31,
+      "adjacentes" : ["Be", "Na", "Ca"]
     },
     "Al": {
       "numeroAtomico": 13,
       "simbolo": "Al",
       "nome": "Alumínio",
-      "massaAtomica": 26.98
+      "massaAtomica": 26.98,
+      "adjacentes" : ["B","Si","Ga"]
     },
     "Si": {
       "numeroAtomico": 14,
       "simbolo": "Si",
       "nome": "Silício",
-      "massaAtomica": 28.09
+      "massaAtomica": 28.09,
+      "adjacentes" : ["C", "Al", "Ge", "P"]
     },
     "P": {
       "numeroAtomico": 15,
       "simbolo": "P",
       "nome": "Fósforo",
-      "massaAtomica": 30.97
+      "massaAtomica": 30.97,
+      "adjacentes" : ["N", "Si", "As", "S"]
     },
     "S": {
       "numeroAtomico": 16,
       "simbolo": "S",
       "nome": "Enxofre",
-      "massaAtomica": 32.07
+      "massaAtomica": 32.07,
+      "adjacentes" : ["O", "P", "Se", "Cl"]
     },
     "Cl": {
       "numeroAtomico": 17,
       "simbolo": "Cl",
       "nome": "Cloro",
-      "massaAtomica": 35.45
+      "massaAtomica": 35.45,
+      "adjacentes" : ["F", "S", "Br", "Ar"]
     },
     "Ar": {
       "numeroAtomico": 18,
       "simbolo": "Ar",
       "nome": "Argônio",
-      "massaAtomica": 39.95
+      "massaAtomica": 39.95,
+      "adjacentes" : ["Ne", "Cl", "Kr"]
     },
     "K": {
       "numeroAtomico": 19,
       "simbolo": "K",
       "nome": "Potássio",
-      "massaAtomica": 39.10
+      "massaAtomica": 39.10,
+      "adjacentes" : ["Na", "Ca", "Rb"]
     },
     "Ca": {
       "numeroAtomico": 20,
       "simbolo": "Ca",
       "nome": "Cálcio",
-      "massaAtomica": 40.08
+      "massaAtomica": 40.08,
+      "adjacentes" : ["Mg", "K", "Sr", "Sc"]
     },
     "Sc": {
       "numeroAtomico": 21,
       "simbolo": "Sc",
       "nome": "Escândio",
-      "massaAtomica": 44.96
+      "massaAtomica": 44.96,
+      "adjacentes" : ["Ca", "Y", "Ti"]
     },
     "Ti": {
       "numeroAtomico": 22,
       "simbolo": "Ti",
       "nome": "Titânio",
-      "massaAtomica": 47.87
+      "massaAtomica": 47.87,
+      "adjacentes" : ["Sc", "Zr", "V"]
     },
     "V": {
       "numeroAtomico": 23,
       "simbolo": "V",
       "nome": "Vanádio",
-      "massaAtomica": 50.94
+      "massaAtomica": 50.94,
+      "adjacentes" : ["Ti", "Nb", "Cr"]
     },
     "Cr": {
       "numeroAtomico": 24,
       "simbolo": "Cr",
       "nome": "Cromo",
-      "massaAtomica": 52.00
+      "massaAtomica": 52.00,
+      "adjacentes" : ["V", "Mo", "Mn"]
     },
     "Mn": {
       "numeroAtomico": 25,
       "simbolo": "Mn",
       "nome": "Manganês",
-      "massaAtomica": 54.94
+      "massaAtomica": 54.94,
+      "adjacentes" : ["Cr", "Tc", "Fe"]
     },
     "Fe": {
       "numeroAtomico": 26,
       "simbolo": "Fe",
       "nome": "Ferro",
-      "massaAtomica": 55.85
+      "massaAtomica": 55.85,
+      "adjacentes" : ["Mn", "Ru", "Co"]
     },
     "Co": {
       "numeroAtomico": 27,
       "simbolo": "Co",
       "nome": "Cobalto",
-      "massaAtomica": 58.93
+      "massaAtomica": 58.93,
+      "adjacentes" : ["Fe", "Rh", "Ni"]
     },
     "Ni": {
       "numeroAtomico": 28,
       "simbolo": "Ni",
       "nome": "Níquel",
-      "massaAtomica": 58.69
+      "massaAtomica": 58.69,
+      "adjacentes" : ["Co", "Pd", "Cu"]
     },
     "Cu": {
       "numeroAtomico": 29,
       "simbolo": "Cu",
       "nome": "Cobre",
-      "massaAtomica": 63.55
+      "massaAtomica": 63.55,
+      "adjacentes" : ["Ni", "Ag", "Zn"]
     },
     "Zn": {
       "numeroAtomico": 30,
       "simbolo": "Zn",
       "nome": "Zinco",
-      "massaAtomica": 65.38
+      "massaAtomica": 65.38,
+      "adjacentes" : ["Cu", "Cd", "Ga"]
     },
     "Ga": {
       "numeroAtomico": 31,
       "simbolo": "Ga",
       "nome": "Gálio",
-      "massaAtomica": 69.72
+      "massaAtomica": 69.72,
+      "adjacentes" : ["Al", "Zn", "In", "Ge"]
     },
     "Ge": {
       "numeroAtomico": 32,
       "simbolo": "Ge",
       "nome": "Germânio",
-      "massaAtomica": 72.63
+      "massaAtomica": 72.63,
+      "adjacentes" : ["Si", "Ga", "Sn", "As"]
     },
     "As": {
       "numeroAtomico": 33,
       "simbolo": "As",
       "nome": "Arsênio",
-      "massaAtomica": 74.92
+      "massaAtomica": 74.92,
+      "adjacentes" : ["P", "Ge", "Sb", "Se"]
     },
     "Se": {
       "numeroAtomico": 34,
       "simbolo": "Se",
       "nome": "Selênio",
-      "massaAtomica": 78.97
+      "massaAtomica": 78.97,
+      "adjacentes" : ["S", "As", "Te", "Br"]
     },
     "Br": {
       "numeroAtomico": 35,
       "simbolo": "Br",
       "nome": "Bromo",
-      "massaAtomica": 79.90
+      "massaAtomica": 79.90,
+      "adjacentes" : ["Cl", "Se", "I", "Kr"]
     },
     "Kr": {
       "numeroAtomico": 36,
       "simbolo": "Kr",
       "nome": "Criptônio",
-      "massaAtomica": 83.80
+      "massaAtomica": 83.80,
+      "adjacentes" : ["Ar", "Br", "Xe"]
     },
     "Rb": {
       "numeroAtomico": 37,
       "simbolo": "Rb",
       "nome": "Rubídio",
-      "massaAtomica": 85.47
+      "massaAtomica": 85.47,
+      "adjacentes" : ["K", "Sr", "Cs"]
     },
     "Sr": {
       "numeroAtomico": 38,
       "simbolo": "Sr",
       "nome": "Estrôncio",
-      "massaAtomica": 87.62
+      "massaAtomica": 87.62,
+      "adjacentes" : ["Ca", "Rb", "Ba", "Y"]
     },
     "Y": {
       "numeroAtomico": 39,
       "simbolo": "Y",
       "nome": "Ítrio",
-      "massaAtomica": 88.91
+      "massaAtomica": 88.91,
+      "adjacentes" : ["Sc", "Sr", "Zr"]
     },
     "Zr": {
       "numeroAtomico": 40,
       "simbolo": "Zr",
       "nome": "Zircônio",
-      "massaAtomica": 91.22
+      "massaAtomica": 91.22,
+      "adjacentes" : ["Ti", "Y", "Hf", "Nb"]
     },
     "Nb": {
       "numeroAtomico": 41,
       "simbolo": "Nb",
       "nome": "Nióbio",
-      "massaAtomica": 92.91
+      "massaAtomica": 92.91,
+      "adjacentes" : ["V", "Zr", "Ta", "Mo"]
     },
     "Mo": {
       "numeroAtomico": 42,
       "simbolo": "Mo",
       "nome": "Molibdênio",
-      "massaAtomica": 95.95
+      "massaAtomica": 95.95,
+      "adjacentes" : ["Cr", "Nb", "W", "Tc"]
     },
     "Tc": {
       "numeroAtomico": 43,
       "simbolo": "Tc",
       "nome": "Tecnécio",
-      "massaAtomica": 98.00
+      "massaAtomica": 98.00,
+      "adjacentes" : ["Mn", "Mo", "Re", "Ru"]
     },
     "Ru": {
       "numeroAtomico": 44,
       "simbolo": "Ru",
       "nome": "Rutênio",
-      "massaAtomica": 101.1
+      "massaAtomica": 101.1,
+      "adjacentes" : ["Fe", "Tc", "Os", "Rh"]
     },
     "Rh": {
       "numeroAtomico": 45,
       "simbolo": "Rh",
       "nome": "Ródio",
-      "massaAtomica": 102.9
+      "massaAtomica": 102.9,
+      "adjacentes" : ["Co", "Ru", "Ir", "Pd"]
     },
     "Pd": {
       "numeroAtomico": 46,
       "simbolo": "Pd",
       "nome": "Paládio",
-      "massaAtomica": 106.4
+      "massaAtomica": 106.4,
+      "adjacentes" : ["Ni", "Rh", "Pt", "Ag"]
     },
     "Ag": {
       "numeroAtomico": 47,
       "simbolo": "Ag",
       "nome": "Prata",
-      "massaAtomica": 107.9
+      "massaAtomica": 107.9,
+      "adjacentes" : ["Cu", "Pd", "Au", "Cd"]
     },
     "Cd": {
       "numeroAtomico": 48,
       "simbolo": "Cd",
       "nome": "Cádmio",
-      "massaAtomica": 112.4
+      "massaAtomica": 112.4,
+      "adjacentes" : ["Zn", "Ag", "Hg", "In"]
     },
     "In": {
       "numeroAtomico": 49,
       "simbolo": "In",
       "nome": "Índio",
-      "massaAtomica": 114.8
+      "massaAtomica": 114.8,
+      "adjacentes" : ["Ga", "Cd", "Tl", "Sn"]
     },
     "Sn": {
       "numeroAtomico": 50,
       "simbolo": "Sn",
       "nome": "Estanho",
-      "massaAtomica": 118.7
+      "massaAtomica": 118.7,
+      "adjacentes" : ["Ge", "In", "Pb", "Sb"]
     },
     "Sb": {
       "numeroAtomico": 51,
       "simbolo": "Sb",
       "nome": "Antimônio",
-      "massaAtomica": 121.8
+      "massaAtomica": 121.8,
+      "adjacentes" : ["As", "Sn", "Bi", "Te"]
     },
     "Te": {
       "numeroAtomico": 52,
       "simbolo": "Te",
       "nome": "Telúrio",
-      "massaAtomica": 127.6
+      "massaAtomica": 127.6,
+      "adjacentes" : ["Se", "Sb", "Po", "I"]
     },
     "I": {
       "numeroAtomico": 53,
       "simbolo": "I",
       "nome": "Iodo",
-      "massaAtomica": 126.9
+      "massaAtomica": 126.9,
+      "adjacentes" : ["Br", "Te", "At", "Xe"]
     },
     "Xe": {
       "numeroAtomico": 54,
       "simbolo": "Xe",
       "nome": "Xenônio",
-      "massaAtomica": 131.3
+      "massaAtomica": 131.3,
+      "adjacentes" : ["Kr", "I", "Rn"]
     },
     "Cs": {
       "numeroAtomico": 55,
       "simbolo": "Cs",
       "nome": "Césio",
-      "massaAtomica": 132.9
+      "massaAtomica": 132.9,
+      "adjacentes" : ["Rb", "Ba", "Fr"]
     },
     "Ba": {
       "numeroAtomico": 56,
       "simbolo": "Ba",
       "nome": "Bário",
-      "massaAtomica": 137.3
-    },
-    "La": {
-      "numeroAtomico": 57,
-      "simbolo": "La",
-      "nome": "Lantânio",
-      "massaAtomica": 138.9
-    },
-    "Ce": {
-      "numeroAtomico": 58,
-      "simbolo": "Ce",
-      "nome": "Cério",
-      "massaAtomica": 140.1
-    },
-    "Pr": {
-      "numeroAtomico": 59,
-      "simbolo": "Pr",
-      "nome": "Praseodímio",
-      "massaAtomica": 140.9
-    },
-    "Nd": {
-      "numeroAtomico": 60,
-      "simbolo": "Nd",
-      "nome": "Neodímio",
-      "massaAtomica": 144.2
-    },
-    "Pm": {
-      "numeroAtomico": 61,
-      "simbolo": "Pm",
-      "nome": "Promécio",
-      "massaAtomica": 145.0
-    },
-    "Sm": {
-      "numeroAtomico": 62,
-      "simbolo": "Sm",
-      "nome": "Samário",
-      "massaAtomica": 150.4
-    },
-    "Eu": {
-      "numeroAtomico": 63,
-      "simbolo": "Eu",
-      "nome": "Európio",
-      "massaAtomica": 152.0
-    },
-    "Gd": {
-      "numeroAtomico": 64,
-      "simbolo": "Gd",
-      "nome": "Gadolínio",
-      "massaAtomica": 157.3
-    },
-    "Tb": {
-      "numeroAtomico": 65,
-      "simbolo": "Tb",
-      "nome": "Térbio",
-      "massaAtomica": 158.9
-    },
-    "Dy": {
-      "numeroAtomico": 66,
-      "simbolo": "Dy",
-      "nome": "Disprósio",
-      "massaAtomica": 162.5
-    },
-    "Ho": {
-      "numeroAtomico": 67,
-      "simbolo": "Ho",
-      "nome": "Hólmio",
-      "massaAtomica": 164.9
-    },
-    "Er": {
-      "numeroAtomico": 68,
-      "simbolo": "Er",
-      "nome": "Érbio",
-      "massaAtomica": 167.3
-    },
-    "Tm": {
-      "numeroAtomico": 69,
-      "simbolo": "Tm",
-      "nome": "Túlio",
-      "massaAtomica": 168.9
-    },
-    "Yb": {
-      "numeroAtomico": 70,
-      "simbolo": "Yb",
-      "nome": "Itérbio",
-      "massaAtomica": 173.0
-    },
-    "Lu": {
-      "numeroAtomico": 71,
-      "simbolo": "Lu",
-      "nome": "Lutécio",
-      "massaAtomica": 175.0
+      "massaAtomica": 137.3,
+      "adjacentes" : ["Sr", "Cs", "Ra"]
     },
     "Hf": {
       "numeroAtomico": 72,
       "simbolo": "Hf",
       "nome": "Háfnio",
-      "massaAtomica": 178.5
+      "massaAtomica": 178.5,
+      "adjacentes" : ["Zr", "Rf", "Ta"]
     },
     "Ta": {
       "numeroAtomico": 73,
       "simbolo": "Ta",
       "nome": "Tântalo",
-      "massaAtomica": 180.9
+      "massaAtomica": 180.9,
+      "adjacentes" : ["Nb", "Hf", "Db", "W"]
     },
     "W": {
       "numeroAtomico": 74,
       "simbolo": "W",
       "nome": "Tungstênio",
-      "massaAtomica": 183.8
+      "massaAtomica": 183.8,
+      "adjacentes" : ["Mo", "Ta", "Sg", "Re"]
     },
     "Re": {
       "numeroAtomico": 75,
       "simbolo": "Re",
       "nome": "Rênio",
-      "massaAtomica": 186.2
+      "massaAtomica": 186.2,
+      "adjacentes" : ["Tc", "W", "Bh", "Os"]
     },
     "Os": {
       "numeroAtomico": 76,
       "simbolo": "Os",
       "nome": "Ósmio",
-      "massaAtomica": 190.2
+      "massaAtomica": 190.2,
+      "adjacentes" : ["Ru", "Re", "Hs", "Ir"]
     },
     "Ir": {
       "numeroAtomico": 77,
       "simbolo": "Ir",
       "nome": "Irídio",
-      "massaAtomica": 192.2
+      "massaAtomica": 192.2,
+      "adjacentes" : ["Rh", "Os", "Mt", "Pt"]
     },
     "Pt": {
       "numeroAtomico": 78,
       "simbolo": "Pt",
       "nome": "Platina",
-      "massaAtomica": 195.1
+      "massaAtomica": 195.1,
+      "adjacentes" : ["Pd", "Ir", "Ds", "Au"]
     },
     "Au": {
       "numeroAtomico": 79,
       "simbolo": "Au",
       "nome": "Ouro",
-      "massaAtomica": 197.0
+      "massaAtomica": 197.0,
+      "adjacentes" : ["Ag", "Pt", "Rg", "Hg"]
     },
     "Hg": {
       "numeroAtomico": 80,
       "simbolo": "Hg",
       "nome": "Mercúrio",
-      "massaAtomica": 200.6
+      "massaAtomica": 200.6,
+      "adjacentes" : ["Cd", "Au", "Cn", "Tl"]
     },
     "Tl": {
       "numeroAtomico": 81,
       "simbolo": "Tl",
       "nome": "Tálio",
-      "massaAtomica": 204.4
+      "massaAtomica": 204.4,
+      "adjacentes" : ["In", "Hg", "Nh", "Pb"]
     },
     "Pb": {
       "numeroAtomico": 82,
       "simbolo": "Pb",
       "nome": "Chumbo",
-      "massaAtomica": 207.2
+      "massaAtomica": 207.2,
+      "adjacentes" : ["Sn", "Tl", "Fl", "Bi"]
     },
     "Bi": {
       "numeroAtomico": 83,
       "simbolo": "Bi",
       "nome": "Bismuto",
-      "massaAtomica": 208.9
+      "massaAtomica": 208.9,
+      "adjacentes" : ["Sb", "Pb", "Mc", "Po"]
     },
     "Po": {
       "numeroAtomico": 84,
       "simbolo": "Po",
       "nome": "Polônio",
-      "massaAtomica": 209.0
+      "massaAtomica": 209.0,
+      "adjacentes" : ["Te", "Bi", "Lv", "At"]
     },
     "At": {
       "numeroAtomico": 85,
       "simbolo": "At",
       "nome": "Ástato",
-      "massaAtomica": 210.0
+      "massaAtomica": 210.0,
+      "adjacentes" : ["I", "Po", "Ts", "Rn"]
     },
     "Rn": {
       "numeroAtomico": 86,
       "simbolo": "Rn",
       "nome": "Radônio",
-      "massaAtomica": 222.0
+      "massaAtomica": 222.0,
+      "adjacentes" : ["Xe", "At", "Og"]
     },
     "Fr": {
       "numeroAtomico": 87,
       "simbolo": "Fr",
       "nome": "Frâncio",
-      "massaAtomica": 223.0
+      "massaAtomica": 223.0,
+      "adjacentes" : ["Cs", "Ra"]
     },
     "Ra": {
       "numeroAtomico": 88,
       "simbolo": "Ra",
       "nome": "Rádio",
-      "massaAtomica": 226.0
-    },
-    "Ac": {
-      "numeroAtomico": 89,
-      "simbolo": "Ac",
-      "nome": "Actínio",
-      "massaAtomica": 227.0
-    },
-    "Th": {
-      "numeroAtomico": 90,
-      "simbolo": "Th",
-      "nome": "Tório",
-      "massaAtomica": 232.0
-    },
-    "Pa": {
-      "numeroAtomico": 91,
-      "simbolo": "Pa",
-      "nome": "Protactínio",
-      "massaAtomica": 231.0
-    },
-    "U": {
-      "numeroAtomico": 92,
-      "simbolo": "U",
-      "nome": "Urânio",
-      "massaAtomica": 238.0
-    },
-    "Np": {
-      "numeroAtomico": 93,
-      "simbolo": "Np",
-      "nome": "Neptúnio",
-      "massaAtomica": 237.0
-    },
-    "Pu": {
-      "numeroAtomico": 94,
-      "simbolo": "Pu",
-      "nome": "Plutônio",
-      "massaAtomica": 244.0
-    },
-    "Am": {
-      "numeroAtomico": 95,
-      "simbolo": "Am",
-      "nome": "Amerício",
-      "massaAtomica": 243.0
-    },
-    "Cm": {
-      "numeroAtomico": 96,
-      "simbolo": "Cm",
-      "nome": "Cúrio",
-      "massaAtomica": 247.0
-    },
-    "Bk": {
-      "numeroAtomico": 97,
-      "simbolo": "Bk",
-      "nome": "Berquélio",
-      "massaAtomica": 247.0
-    },
-    "Cf": {
-      "numeroAtomico": 98,
-      "simbolo": "Cf",
-      "nome": "Califórnio",
-      "massaAtomica": 251.0
-    },
-    "Es": {
-      "numeroAtomico": 99,
-      "simbolo": "Es",
-      "nome": "Einstênio",
-      "massaAtomica": 252.0
-    },
-    "Fm": {
-      "numeroAtomico": 100,
-      "simbolo": "Fm",
-      "nome": "Férmio",
-      "massaAtomica": 257.0
-    },
-    "Md": {
-      "numeroAtomico": 101,
-      "simbolo": "Md",
-      "nome": "Mendelévio",
-      "massaAtomica": 258.0
-    },
-    "No": {
-      "numeroAtomico": 102,
-      "simbolo": "No",
-      "nome": "Nobélio",
-      "massaAtomica": 259.0
-    },
-    "Lr": {
-      "numeroAtomico": 103,
-      "simbolo": "Lr",
-      "nome": "Laurêncio",
-      "massaAtomica": 266.0
+      "massaAtomica": 226.0,
+      "adjacentes" : ["Ba", "Fr"]
     },
     "Rf": {
       "numeroAtomico": 104,
       "simbolo": "Rf",
       "nome": "Rutherfórdio",
-      "massaAtomica": 267.0
+      "massaAtomica": 267.0,
+      "adjacentes" : ["Hf", "Db"]
     },
     "Db": {
       "numeroAtomico": 105,
       "simbolo": "Db",
       "nome": "Dúbnio",
-      "massaAtomica": 270.0
+      "massaAtomica": 270.0,
+      "adjacentes" : ["Ta", "Rf", "Sg"]
     },
     "Sg": {
       "numeroAtomico": 106,
       "simbolo": "Sg",
       "nome": "Seabórgio",
-      "massaAtomica": 271.0
+      "massaAtomica": 271.0,
+      "adjacentes" : ["W", "Db", "Bh"]
     },
     "Bh": {
       "numeroAtomico": 107,
       "simbolo": "Bh",
       "nome": "Bóhrio",
-      "massaAtomica": 270.0
+      "massaAtomica": 270.0,
+      "adjacentes" : ["Re", "Sg", "Hs"]
     },
     "Hs": {
       "numeroAtomico": 108,
       "simbolo": "Hs",
       "nome": "Hássio",
-      "massaAtomica": 277.0
+      "massaAtomica": 277.0,
+      "adjacentes" : ["Os", "Bh", "Mt"]
     },
     "Mt": {
       "numeroAtomico": 109,
       "simbolo": "Mt",
       "nome": "Meitnério",
-      "massaAtomica": 278.0
+      "massaAtomica": 278.0,
+      "adjacentes" : ["Ir", "Hs", "Ds"]
     },
     "Ds": {
       "numeroAtomico": 110,
       "simbolo": "Ds",
       "nome": "Darmstádio",
-      "massaAtomica": 281.0
+      "massaAtomica": 281.0,
+      "adjacentes" : ["Pt", "Mt", "Rg"]
     },
     "Rg": {
       "numeroAtomico": 111,
       "simbolo": "Rg",
       "nome": "Roentgênio",
-      "massaAtomica": 282.0
+      "massaAtomica": 282.0,
+      "adjacentes" : ["Au", "Ds", "Cn"]
     },
     "Cn": {
       "numeroAtomico": 112,
       "simbolo": "Cn",
       "nome": "Copernício",
-      "massaAtomica": 285.0
+      "massaAtomica": 285.0,
+      "adjacentes" : ["Hg", "Rg", "Nh"]
     },
     "Nh": {
       "numeroAtomico": 113,
       "simbolo": "Nh",
       "nome": "Nihônio",
-      "massaAtomica": 286.0
+      "massaAtomica": 286.0,
+      "adjacentes" : ["Tl", "Cn", "Fl"]
     },
     "Fl": {
       "numeroAtomico": 114,
       "simbolo": "Fl",
       "nome": "Fleróvio",
-      "massaAtomica": 289.0
+      "massaAtomica": 289.0,
+      "adjacentes" : ["Pb", "Nh", "Mc"]
     },
     "Mc": {
       "numeroAtomico": 115,
       "simbolo": "Mc",
       "nome": "Moscóvio",
-      "massaAtomica": 290.0
+      "massaAtomica": 290.0,
+      "adjacentes" : ["Bi", "Fl", "Lv"]
     },
     "Lv": {
       "numeroAtomico": 116,
       "simbolo": "Lv",
       "nome": "Livermório",
-      "massaAtomica": 293.0
+      "massaAtomica": 293.0,
+      "adjacentes" : ["Po", "Mc", "Ts"]
     },
     "Ts": {
       "numeroAtomico": 117,
       "simbolo": "Ts",
       "nome": "Tenessino",
-      "massaAtomica": 294.0
+      "massaAtomica": 294.0,
+      "adjacentes" : ["At", "Lv", "Og"]
     },
     "Og": {
       "numeroAtomico": 118,
       "simbolo": "Og",
       "nome": "Oganessônio",
-      "massaAtomica": 294.0
+      "massaAtomica": 294.0,
+      "adjacentes" : ["Rn", "Ts"]
     }
   }
     
