@@ -136,14 +136,11 @@ table tr td{
 
 .laranja{
     background-color: #f58132;
+    /* border: #000000 3px solid; */
 }
 
-.lalu{
-    background-color: #ee3432;
-}
-
-.aclr{
-    background-color: #a62439;
+.inclicaveis{
+    background-color: #8b8b8b;
 }
 
 .rosa{
@@ -173,13 +170,13 @@ table tr td{
     font-size: 15px;
 }
 
-table tr td:hover:not(.excessao){
+table tr td:hover:not(.excessao, .inclicaveis){
     background-color: black;
     color: white;
     cursor: pointer;
 }
 
-.elementos-pressionados:not(.excessao){
+.elementos-pressionados:not(.excessao, .inclicaveis){
     background-color: black;
     color: white;
     font-weight: bold;

@@ -1,6 +1,8 @@
 let qntElementosPress = 0;
 let elementosPressCSS = [];
 let elementosJson;
+let opend = [];
+let closed = [];
 
 async function pegarJSON() {
   try {
@@ -13,17 +15,25 @@ async function pegarJSON() {
 }
 
 window.onload = async function() {
-  elementosJson = await pegarJSON();
-    console.log(elementosJson["H"].adjacentes)
+    selecionarElementosFinalEInicial();
+    executarAlgoritimo("H", "K");
+};
+
+function selecionarElementosFinalEInicial(){
   var celulas = document.getElementsByTagName("td");
   for (var i = 0; i < celulas.length; i++) {
     celulas[i].onclick = function() {
+      if (this.classList.contains("excessao") || this.classList.contains("inclicaveis")) {
+        return; 
+      }
       if (qntElementosPress < 2) {
         elementosPressCSS.push(this);
         this.classList.add("elementos-pressionados");
         qntElementosPress++;
       } else {
-        elementosPressCSS[0].classList.remove("elementos-pressionados");
+        if(elementosPressCSS[0] != elementosPressCSS[1]){
+          elementosPressCSS[0].classList.remove("elementos-pressionados");
+        }
         elementosPressCSS.shift();
         elementosPressCSS.push(this);
         this.classList.add("elementos-pressionados");
@@ -36,4 +46,21 @@ window.onload = async function() {
       }
     };
   }
-};
+}
+
+async function executarAlgoritimo(inicial, final){
+  elementosJson = await pegarJSON();
+  let adjacentesInicial = elementosJson[inicial].adjacentes;
+  if(adjacentesInicial){
+    for(let i = 0; i < adjacentesInicial.length; i++){
+      let adjacente = elementosJson[inicial].adjacentes[i];
+      if(adjacente && adjacente!=null){
+
+      }
+    }
+  }
+}
+
+function calcularHeuristica(elemento, final){
+  
+}
