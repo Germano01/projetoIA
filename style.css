@@ -136,7 +136,6 @@ table tr td{
 
 .laranja{
     background-color: #f58132;
-    /* border: #000000 3px solid; */
 }
 
 .inclicaveis{
@@ -168,6 +167,10 @@ table tr td{
 .siglacor{
     font-weight: bold;
     font-size: 15px;
+}
+
+.borda-caminho{  
+    border: #000000 3px solid;
 }
 
 table tr td:hover:not(.excessao, .inclicaveis){

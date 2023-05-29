@@ -16,7 +16,6 @@ async function pegarJSON() {
 
 window.onload = async function() {
     selecionarElementosFinalEInicial();
-    executarAlgoritimo("H", "K");
 };
 
 function selecionarElementosFinalEInicial(){
@@ -43,6 +42,8 @@ function selecionarElementosFinalEInicial(){
       if (elementosPressCSS.length == 2) {
         let nomeFinal = elementosPressCSS[1].querySelector(".nome").innerHTML;
         document.getElementById("elementoSelecionadoFinal").innerHTML = "Elemento Final: <br><br>" + nomeFinal;
+        opend = [];
+        executarAlgoritimo(elementosPressCSS[0].querySelector(".siglacor").innerHTML, elementosPressCSS[1].querySelector(".siglacor").innerHTML);
       }
     };
   }
@@ -50,17 +51,37 @@ function selecionarElementosFinalEInicial(){
 
 async function executarAlgoritimo(inicial, final){
   elementosJson = await pegarJSON();
+  console.log(inicial + ", " + final) 
+  if(elementosJson == null || !elementosJson){
+    console.log("ERRO ao pegar JSON");
+    return
+  }
   let adjacentesInicial = elementosJson[inicial].adjacentes;
   if(adjacentesInicial){
     for(let i = 0; i < adjacentesInicial.length; i++){
       let adjacente = elementosJson[inicial].adjacentes[i];
       if(adjacente && adjacente!=null){
-
+        let fh = calcularHeuristica(adjacente, final);
+        let fa = fh + elementosJson[adjacente].numeroAtomico;
+        const elementoAtual = {elemento: adjacente, avaliacao: fa};
+        opend.push(elementoAtual);
       }
     }
+
+    let itemMenor = opend[0];
+    opend.forEach(function(item, index) {
+      if(item.avaliacao < itemMenor.avaliacao){
+        itemMenor = item;
+      }
+    });
+
+    document.getElementById(itemMenor.elemento).parentNode.classList.add("borda-caminho");
   }
 }
 
 function calcularHeuristica(elemento, final){
-  
+  let heuristica1 = Math.abs((elementosJson[final].grupo * elementosJson[final].periodo) - (elementosJson[elemento].grupo * elementosJson[elemento].periodo));
+  let heuristica2 = Math.abs(elementosJson[final].numeroAtomico - elementosJson[elemento].numeroAtomico)
+  let resultado = heuristica1 + heuristica2;
+  return resultado;
 }
