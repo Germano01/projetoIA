@@ -24,9 +24,15 @@ function fazerBusca(){
   if(opend.length != 0){
     opend.forEach(function(item) {
       document.getElementById(item.elemento).parentNode.classList.remove("borda-caminho");
+      document.getElementById(item.elemento).parentNode.classList.remove("fundo-caminho");
+    });
+    closed.forEach(function(item) {
+      document.getElementById(item.elemento).parentNode.classList.remove("borda-caminho");
+      document.getElementById(item.elemento).parentNode.classList.remove("fundo-caminho");
     });
   }
   opend = [];
+  closed = [];
   inicial = elementosPressCSS[0].querySelector(".siglacor").innerHTML;
   final = elementosPressCSS[1].querySelector(".siglacor").innerHTML;
   closed.push({ elemento: inicial, avaliacao: 0, custoReal: 0, heuristica: 0, pai: null });
@@ -66,7 +72,7 @@ async function abrirAdjacente(elemento, final) {
   return new Promise(resolve => {
     let adjacenteElemento = elementosJson[elemento].adjacentes;
     let custoPai = null;
-    if(opend.length != 0){
+    if(closed.length != 0){
       closed.forEach(function (item) {
         if (item.elemento == elemento) {
           custoPai = item.custoReal;
@@ -80,6 +86,11 @@ async function abrirAdjacente(elemento, final) {
         //console.log("Adjacente: " + adjacente)
         let hasAdjacente = false;
         closed.forEach(function (item) {
+          if(item.elemento == adjacente){
+            hasAdjacente = true;
+          }
+        })
+        opend.forEach(function (item) {
           if(item.elemento == adjacente){
             hasAdjacente = true;
           }
@@ -121,15 +132,21 @@ async function executarAlgoritmo(elemento, final) {
     }
   });
   if(itemMenor.elemento == final){
+    console.log("{ " + itemMenor.elemento + ", fa: " + itemMenor.avaliacao + ", custoReal: " + itemMenor.custoReal + ", heuristica: " + itemMenor.heuristica + ", pai: " + itemMenor.pai);
     console.log("FINALIZANDO ALGORITIMO")
+    let caminhoFinal = await getCaminho(itemMenor, "");
+    console.log("CAMINHO: " + caminhoFinal);
     return
   }
   console.log("Escolhendo elemento com menos f(a).... Escolhido: " + itemMenor.elemento);
   document.getElementById(itemMenor.elemento).parentNode.classList.add("borda-caminho");
   closed.push(itemMenor);
   opend.splice(indexMenor, 1);
-  printListas();
+  //printListas();
   console.log("___________________________________________________________________")
+  // setTimeout(function() {
+  //   executarAlgoritmo(itemMenor.elemento, final);
+  // }, 1000);
   executarAlgoritmo(itemMenor.elemento, final);
 }
 
@@ -139,6 +156,24 @@ function getCustoReal(elemento, custoPai){
     return elementosJson[elemento].numeroAtomico;
   }else{
     return elementosJson[elemento].numeroAtomico + custoPai;
+  }
+}
+
+function getCaminho(elemento, caminho) {
+  if (elemento.pai == null) {
+    caminho = elemento.elemento + caminho;
+    return caminho;
+  } else {
+    document.getElementById(elemento.elemento).parentNode.classList.add("fundo-caminho");
+    caminho = " -> " + elemento.elemento + caminho;
+    let pai = elemento.pai;
+    let resultado;
+    closed.forEach(function (item) {
+      if (item.elemento == pai) {
+        resultado = getCaminho(item, caminho); 
+      }
+    });
+    return resultado; 
   }
 }
 

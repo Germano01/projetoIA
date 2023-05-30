@@ -170,7 +170,11 @@ table tr td{
 }
 
 .borda-caminho{  
-    border: #000000 3px solid;
+    outline: #000000 3px solid;
+}
+
+.fundo-caminho{  
+    background-color: #dfdfdf;
 }
 
 table tr td:hover:not(.excessao, .inclicaveis){
