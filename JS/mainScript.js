@@ -3,6 +3,8 @@ let elementosPressCSS = [];
 let elementosJson;
 let opend = [];
 let closed = [];
+let inicial;
+let final;
 
 async function pegarJSON() {
   try {
@@ -17,6 +19,19 @@ async function pegarJSON() {
 window.onload = async function() {
     selecionarElementosFinalEInicial();
 };
+
+function fazerBusca(){
+  if(opend.length != 0){
+    opend.forEach(function(item) {
+      document.getElementById(item.elemento).parentNode.classList.remove("borda-caminho");
+    });
+  }
+  opend = [];
+  inicial = elementosPressCSS[0].querySelector(".siglacor").innerHTML;
+  final = elementosPressCSS[1].querySelector(".siglacor").innerHTML;
+  closed.push({ elemento: inicial, avaliacao: 0, custoReal: 0, heuristica: 0, pai: null });
+  executarAlgoritmo(inicial, final);
+}
 
 function selecionarElementosFinalEInicial(){
   var celulas = document.getElementsByTagName("td");
@@ -42,46 +57,107 @@ function selecionarElementosFinalEInicial(){
       if (elementosPressCSS.length == 2) {
         let nomeFinal = elementosPressCSS[1].querySelector(".nome").innerHTML;
         document.getElementById("elementoSelecionadoFinal").innerHTML = "Elemento Final: <br><br>" + nomeFinal;
-        opend = [];
-        executarAlgoritimo(elementosPressCSS[0].querySelector(".siglacor").innerHTML, elementosPressCSS[1].querySelector(".siglacor").innerHTML);
       }
     };
   }
 }
 
-async function executarAlgoritimo(inicial, final){
-  elementosJson = await pegarJSON();
-  console.log(inicial + ", " + final) 
-  if(elementosJson == null || !elementosJson){
-    console.log("ERRO ao pegar JSON");
-    return
-  }
-  let adjacentesInicial = elementosJson[inicial].adjacentes;
-  if(adjacentesInicial){
-    for(let i = 0; i < adjacentesInicial.length; i++){
-      let adjacente = elementosJson[inicial].adjacentes[i];
-      if(adjacente && adjacente!=null){
-        let fh = calcularHeuristica(adjacente, final);
-        let fa = fh + elementosJson[adjacente].numeroAtomico;
-        const elementoAtual = {elemento: adjacente, avaliacao: fa};
-        opend.push(elementoAtual);
+async function abrirAdjacente(elemento, final) {
+  return new Promise(resolve => {
+    let adjacenteElemento = elementosJson[elemento].adjacentes;
+    let custoPai = null;
+    if(opend.length != 0){
+      closed.forEach(function (item) {
+        if (item.elemento == elemento) {
+          custoPai = item.custoReal;
+        }
+      });
+    }
+    //console.log("Pegando elementos adjacentes de " + elemento);
+    if (adjacenteElemento) {
+      for (let i = 0; i < adjacenteElemento.length; i++) {
+        let adjacente = elementosJson[elemento].adjacentes[i];
+        //console.log("Adjacente: " + adjacente)
+        let hasAdjacente = false;
+        closed.forEach(function (item) {
+          if(item.elemento == adjacente){
+            hasAdjacente = true;
+          }
+        })
+        if(!hasAdjacente){
+          if (adjacente && adjacente != null) {
+            let fh = calcularHeuristica(adjacente, final);
+            let custoReal = getCustoReal(adjacente, custoPai);
+            //console.log("Custo = " + custoReal);
+            let fa = fh + custoReal;
+            //console.log("f(a) = " + fa);
+            const elementoAtual = { elemento: adjacente, avaliacao: fa, custoReal: custoReal, heuristica: fh, pai: elemento };
+            //console.log("Adicionando " + adjacente + " na lista de abertos (opened) ...")
+            opend.push(elementoAtual);
+          }
+        }
       }
     }
+    resolve(); 
+  });
+}
 
-    let itemMenor = opend[0];
-    opend.forEach(function(item, index) {
-      if(item.avaliacao < itemMenor.avaliacao){
-        itemMenor = item;
-      }
-    });
+async function executarAlgoritmo(elemento, final) {
+  elementosJson = await pegarJSON();
+  if (elementosJson == null || !elementosJson) {
+    console.log("ERRO ao pegar JSON");
+    return;
+  }
+  //console.log("Executando algoritimo de busca A*....");
+  //console.log("CLOSED: " + closed)
+  //console.log("Indo de: " + elemento + " até -> " + final);
+  await abrirAdjacente(elemento, final); 
+  let itemMenor = opend[0];
+  let indexMenor = 0;
+  opend.forEach(function (item, index) {
+    if (item.avaliacao < itemMenor.avaliacao) {
+      itemMenor = item;
+      indexMenor = index;
+    }
+  });
+  if(itemMenor.elemento == final){
+    console.log("FINALIZANDO ALGORITIMO")
+    return
+  }
+  console.log("Escolhendo elemento com menos f(a).... Escolhido: " + itemMenor.elemento);
+  document.getElementById(itemMenor.elemento).parentNode.classList.add("borda-caminho");
+  closed.push(itemMenor);
+  opend.splice(indexMenor, 1);
+  printListas();
+  console.log("___________________________________________________________________")
+  executarAlgoritmo(itemMenor.elemento, final);
+}
 
-    document.getElementById(itemMenor.elemento).parentNode.classList.add("borda-caminho");
+
+function getCustoReal(elemento, custoPai){
+  if(custoPai == null){
+    return elementosJson[elemento].numeroAtomico;
+  }else{
+    return elementosJson[elemento].numeroAtomico + custoPai;
   }
 }
 
+function printListas(){
+  console.log("OPEND")
+  opend.forEach(function (item) {
+    console.log("{ " + item.elemento + ", fa: " + item.avaliacao + ", custoReal: " + item.custoReal + ", heuristica: " + item.heuristica + ", pai: " + item.pai);
+  });
+  console.log("CLOSED")
+  closed.forEach(function (item) {
+    console.log("{ " + item.elemento + ", avaliacao: " + item.avaliacao + ", custoReal: " + item.custoReal + ", heuristica: " + item.heuristica + ", pai: " + item.pai);
+  });
+}
+
 function calcularHeuristica(elemento, final){
+  //console.log("Calculando resultado da função heuristica de " + elemento + " -> " + final);
   let heuristica1 = Math.abs((elementosJson[final].grupo * elementosJson[final].periodo) - (elementosJson[elemento].grupo * elementosJson[elemento].periodo));
   let heuristica2 = Math.abs(elementosJson[final].numeroAtomico - elementosJson[elemento].numeroAtomico)
   let resultado = heuristica1 + heuristica2;
+  //console.log("f(h) = " + resultado);
   return resultado;
 }
