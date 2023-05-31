@@ -86,7 +86,7 @@ async function abrirAdjacente(elemento, final) {
         //console.log("Adjacente: " + adjacente)
         let hasAdjacente = false;
         closed.forEach(function (item) {
-          if(item.elemento == adjacente){
+          if(item.elemento == adjacente && item.elemento != final){
             hasAdjacente = true;
           }
         })
@@ -144,10 +144,10 @@ async function executarAlgoritmo(elemento, final) {
   opend.splice(indexMenor, 1);
   //printListas();
   console.log("___________________________________________________________________")
-  // setTimeout(function() {
-  //   executarAlgoritmo(itemMenor.elemento, final);
-  // }, 1000);
-  executarAlgoritmo(itemMenor.elemento, final);
+  setTimeout(function() {
+    executarAlgoritmo(itemMenor.elemento, final);
+  }, 500);
+  //executarAlgoritmo(itemMenor.elemento, final);
 }
 
 
