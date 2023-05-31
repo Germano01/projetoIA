@@ -221,7 +221,7 @@
       "nome": "Manganês",
       "massaAtomica": 54.94,
       "adjacentes" : ["Cr", "Tc", "Fe"],
-      "grupo": 6,
+      "grupo": 7,
       "periodo": 4
     },
     "Fe": {
@@ -383,7 +383,7 @@
       "nome": "Tecnécio",
       "massaAtomica": 98.00,
       "adjacentes" : ["Mn", "Mo", "Re", "Ru"],
-      "grupo": 6,
+      "grupo": 7,
       "periodo": 5
     },
     "Ru": {
@@ -536,7 +536,7 @@
       "nome": "Rênio",
       "massaAtomica": 186.2,
       "adjacentes" : ["Tc", "W", "Bh", "Os"],
-      "grupo": 6,
+      "grupo": 7,
       "periodo": 6
     },
     "Os": {
@@ -689,7 +689,7 @@
       "nome": "Bóhrio",
       "massaAtomica": 270.0,
       "adjacentes" : ["Re", "Sg", "Hs"],
-      "grupo": 6,
+      "grupo": 7,
       "periodo": 7
     },
     "Hs": {
