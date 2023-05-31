@@ -79,11 +79,11 @@ async function abrirAdjacente(elemento, final) {
         }
       });
     }
-    //console.log("Pegando elementos adjacentes de " + elemento);
+    console.log("Pegando elementos adjacentes de " + elemento);
     if (adjacenteElemento) {
       for (let i = 0; i < adjacenteElemento.length; i++) {
         let adjacente = elementosJson[elemento].adjacentes[i];
-        //console.log("Adjacente: " + adjacente)
+        console.log("Adjacente: " + adjacente)
         let hasAdjacente = false;
         closed.forEach(function (item) {
           if(item.elemento == adjacente && item.elemento != final){
@@ -95,7 +95,8 @@ async function abrirAdjacente(elemento, final) {
             hasAdjacente = true;
           }
         })
-        if(!hasAdjacente){
+        if(!hasAdjacente){          
+          console.log("Adjacent valido: ")
           if (adjacente && adjacente != null) {
             let fh = calcularHeuristica(adjacente, final);
             let custoReal = getCustoReal(adjacente, custoPai);
