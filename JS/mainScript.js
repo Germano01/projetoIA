@@ -86,15 +86,15 @@ async function abrirAdjacente(elemento, final) {
         console.log("Adjacente: " + adjacente)
         let hasAdjacente = false;
         closed.forEach(function (item) {
-          if(item.elemento == adjacente && item.elemento != final){
-            hasAdjacente = true;
-          }
-        })
-        opend.forEach(function (item) {
           if(item.elemento == adjacente){
             hasAdjacente = true;
           }
         })
+        // opend.forEach(function (item) {
+        //   if(item.elemento == adjacente){
+        //     hasAdjacente = true;
+        //   }
+        // })
         if(!hasAdjacente){          
           console.log("Adjacent valido: ")
           if (adjacente && adjacente != null) {
@@ -102,7 +102,7 @@ async function abrirAdjacente(elemento, final) {
             let custoReal = getCustoReal(adjacente, custoPai);
             //console.log("Custo = " + custoReal);
             let fa = fh + custoReal;
-            //console.log("f(a) = " + fa);
+            console.log("f(a) = " + fa);
             const elementoAtual = { elemento: adjacente, avaliacao: fa, custoReal: custoReal, heuristica: fh, pai: elemento };
             //console.log("Adicionando " + adjacente + " na lista de abertos (opened) ...")
             opend.push(elementoAtual);
@@ -137,6 +137,8 @@ async function executarAlgoritmo(elemento, final) {
     console.log("FINALIZANDO ALGORITIMO")
     let caminhoFinal = await getCaminho(itemMenor, "");
     console.log("CAMINHO: " + caminhoFinal);
+    const result = caminhoFinal.split(" -> ");
+    pintarCaminho(result);
     return
   }
   console.log("Escolhendo elemento com menos f(a).... Escolhido: " + itemMenor.elemento);
@@ -147,7 +149,7 @@ async function executarAlgoritmo(elemento, final) {
   console.log("___________________________________________________________________")
   setTimeout(function() {
     executarAlgoritmo(itemMenor.elemento, final);
-  }, 500);
+  }, 10);
   //executarAlgoritmo(itemMenor.elemento, final);
 }
 
@@ -165,17 +167,30 @@ function getCaminho(elemento, caminho) {
     caminho = elemento.elemento + caminho;
     return caminho;
   } else {
-    document.getElementById(elemento.elemento).parentNode.classList.add("fundo-caminho");
     caminho = " -> " + elemento.elemento + caminho;
+    console.log(elemento)
     let pai = elemento.pai;
-    let resultado;
+    let elementoPai = null;
     closed.forEach(function (item) {
       if (item.elemento == pai) {
-        resultado = getCaminho(item, caminho); 
+        if(elementoPai!= null){
+          if(item.avaliacao<elementoPai.avaliacao){
+            elementoPai = item;
+          }
+        }else{
+          elementoPai = item;
+        }
       }
     });
+    let resultado = getCaminho(elementoPai, caminho); 
     return resultado; 
   }
+}
+
+function pintarCaminho(caminho){
+  caminho.forEach(function (item) {
+    document.getElementById(item).parentNode.classList.add("fundo-caminho");
+  });
 }
 
 function printListas(){
@@ -191,7 +206,7 @@ function printListas(){
 
 function calcularHeuristica(elemento, final){
   //console.log("Calculando resultado da função heuristica de " + elemento + " -> " + final);
-  let heuristica1 = Math.abs((elementosJson[final].grupo * elementosJson[final].periodo) - (elementosJson[elemento].grupo * elementosJson[elemento].periodo));
+  let heuristica1 = Math.abs(((elementosJson[final].grupo * 0.2) * (elementosJson[final].periodo * 0.8)) - ((elementosJson[elemento].grupo * 0.2) * (elementosJson[elemento].periodo * 0.8)));
   let heuristica2 = Math.abs(elementosJson[final].numeroAtomico - elementosJson[elemento].numeroAtomico)
   let resultado = heuristica1 + heuristica2;
   //console.log("f(h) = " + resultado);
