@@ -127,7 +127,7 @@ async function abrirAdjacente(elemento, final) {
         if(!hasAdjacente){          
           if (adjacente && adjacente != null) {
             let fh = calcularHeuristica(adjacente, final);
-            let custoReal = getCustoReal(adjacente, custoPai);
+            let custoReal = getCustoReal(adjacente, elemento, custoPai);
             let fa = fh + custoReal;
             const elementoAtual = { elemento: adjacente, avaliacao: fa, custoReal: custoReal, heuristica: fh, pai: elemento };
             opend.push(elementoAtual);
@@ -139,11 +139,11 @@ async function abrirAdjacente(elemento, final) {
   });
 }
 
-function getCustoReal(elemento, custoPai){
+function getCustoReal(elemento, pai, custoPai){
   if(custoPai == null){
-    return elementosJson[elemento].numeroAtomico;
+    return elementosJson[elemento].numeroAtomico + elementosJson[pai].numeroAtomico;
   }else{
-    return elementosJson[elemento].numeroAtomico + custoPai;
+    return elementosJson[elemento].numeroAtomico + elementosJson[pai].numeroAtomico + custoPai;
   }
 }
 
@@ -179,7 +179,7 @@ function pintarCaminho(caminho){
 }
 
 function calcularHeuristica(elemento, final){
-  let heuristica1 = Math.abs(((elementosJson[final].grupo * 0.2) * (elementosJson[final].periodo * 0.8)) - ((elementosJson[elemento].grupo * 0.2) * (elementosJson[elemento].periodo * 0.8)));
+  let heuristica1 = Math.abs(((elementosJson[final].grupo * 0.3) * (elementosJson[final].periodo * 0.7)) - ((elementosJson[elemento].grupo * 0.3) * (elementosJson[elemento].periodo * 0.7)));
   let heuristica2 = Math.abs(elementosJson[final].numeroAtomico - elementosJson[elemento].numeroAtomico)
   let resultado = heuristica1 + heuristica2;
   return resultado;
