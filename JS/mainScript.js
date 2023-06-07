@@ -1,7 +1,7 @@
 let qntElementosPress = 0;
 let elementosPressCSS = [];
 let elementosJson;
-let opend = [];
+let opened = [];
 let closed = [];
 
 async function pegarJSON() {
@@ -48,8 +48,8 @@ function selecionarElementosFinalEInicial(){
 }
 
 function fazerBusca(){
-  if(opend.length != 0){
-    opend.forEach(function(item) {
+  if(opened.length != 0){
+    opened.forEach(function(item) {
       document.getElementById(item.elemento).parentNode.classList.remove("borda-caminho");
       document.getElementById(item.elemento).parentNode.classList.remove("fundo-caminho");
     });
@@ -58,7 +58,7 @@ function fazerBusca(){
       document.getElementById(item.elemento).parentNode.classList.remove("fundo-caminho");
     });
   }
-  opend = [];
+  opened = [];
   closed = [];
   let inicial = elementosPressCSS[0].querySelector(".siglacor").innerHTML;
   let final = elementosPressCSS[1].querySelector(".siglacor").innerHTML;
@@ -73,9 +73,9 @@ async function executarAlgoritmo(elemento, final) {
     return;
   }
   await abrirAdjacente(elemento, final); 
-  let itemMenor = opend[0];
+  let itemMenor = opened[0];
   let indexMenor = 0;
-  opend.forEach(function (item, index) {
+  opened.forEach(function (item, index) {
     if (item.avaliacao < itemMenor.avaliacao) {
       itemMenor = item;
       indexMenor = index;
@@ -87,14 +87,17 @@ async function executarAlgoritmo(elemento, final) {
     // console.log("CAMINHO: " + caminhoFinal);
     const result = caminhoFinal.split(" -> ");
     pintarCaminho(result);
+    sessionStorage.setItem('closed', closed);
+    //let item = sessionStorage.getItem('closed')
+    sessionStorage.setItem('opened', opened);
     console.table(closed)
-    console.table(opend)
+    console.table(opened)
     return
   }
   //console.log("Escolhendo elemento com menos f(a).... Escolhido: " + itemMenor.elemento);
   document.getElementById(itemMenor.elemento).parentNode.classList.add("borda-caminho");
   closed.push(itemMenor);
-  opend.splice(indexMenor, 1);
+  opened.splice(indexMenor, 1);
   setTimeout(function() {
     executarAlgoritmo(itemMenor.elemento, final);
   }, 10);
@@ -121,7 +124,7 @@ async function abrirAdjacente(elemento, final) {
           }
         })
         // VERIFICACAO - NA EXPANDIR NOVAMENTE MESMO ELEMENTO
-        // opend.forEach(function (item) {
+        // opened.forEach(function (item) {
         //   if(item.elemento == adjacente){
         //     hasAdjacente = true;
         //   }
@@ -132,7 +135,7 @@ async function abrirAdjacente(elemento, final) {
             let custoReal = getCustoReal(adjacente, elemento, custoPai);
             let fa = fh + custoReal;
             const elementoAtual = { elemento: adjacente, avaliacao: fa, custoReal: custoReal, heuristica: fh, pai: elemento };
-            opend.push(elementoAtual);
+            opened.push(elementoAtual);
           }
         }
       }
