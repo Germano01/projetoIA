@@ -5,14 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="caminho/para/o/seu/icone.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<title>Heurística - Tabela Periódica</title>
 </head>
 <body>
 
 	<div class="menu">
     	<ul>
-      		<li><a href="#"><i class="fas fa-robot"></i> MATERIAL</a></li>
+      		<li><a href="./arvore.php"><i class="fas fa-robot"></i> MATERIAL</a></li>
       		<li><a href="#"><i class="fas fa-calculator"></i> CÁLCULO</a></li>
     		<li><a href="#"><i class="fas fa-user"></i> GRUPO</a></li>
     	</ul>
@@ -593,9 +594,34 @@
 	</table>
 </div>
 
-<p id="elementoSelecionadoInicial"><br>Elemento Inicial: </p><br>
-<p id="elementoSelecionadoFinal"><br>Elemento Final: </p><br>
-<button id="botao-buscar" onclick="fazerBusca()">Buscar</button>
+  
+<p id="elementoSelecionadoInicial"><br>Elemento Inicial</p>
+<p id="elementoSelecionadoFinal"><br>Elemento Final</p><br>
+
+<div class="opcoes">
+	<button id="botao-buscar" onclick="fazerBusca()">Buscar</button>
+	<button id="open-modal" onclick="openModal()">Exibir Árvore</button>
+</div>
+
+<div class="modal-overlay">
+	<div class="janela">
+		<h2>Árvore de Busca - A*</h2>
+		<hr />
+		<span>
+			Árvore de Busca do Elemento X ao Y
+		</span>
+		<hr />
+
+		<div class="btns-modal">
+			<button class="btnOK" onclick="closeModal()">OK</button>
+			<button class="btnClose" onclick="closeModal()">Close</button>	
+		</div>
+		
+		<div class="modal-content">
+			<iframe src="arvore.php"></iframe>
+		</div>
+	</div>
+</div>
 
 <script src="./JS/mainScript.js"></script>
 

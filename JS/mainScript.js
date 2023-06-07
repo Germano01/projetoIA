@@ -184,3 +184,14 @@ function calcularHeuristica(elemento, final){
   let resultado = heuristica1 + heuristica2;
   return resultado;
 }
+
+//Modal
+const modal = document.querySelector('.modal-overlay')
+
+function openModal(){
+  modal.classList.add('active')
+}
+
+function closeModal(){
+  modal.classList.remove('active')
+}
