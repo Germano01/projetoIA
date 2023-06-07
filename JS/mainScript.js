@@ -82,14 +82,16 @@ async function executarAlgoritmo(elemento, final) {
     }
   });
   if(itemMenor.elemento == final){
-    console.log("FINALIZANDO ALGORITIMO")
+    //console.log("FINALIZANDO ALGORITIMO")
     let caminhoFinal = await getCaminho(itemMenor, "");
-    console.log("CAMINHO: " + caminhoFinal);
+    // console.log("CAMINHO: " + caminhoFinal);
     const result = caminhoFinal.split(" -> ");
     pintarCaminho(result);
+    console.table(closed)
+    console.table(opend)
     return
   }
-  console.log("Escolhendo elemento com menos f(a).... Escolhido: " + itemMenor.elemento);
+  //console.log("Escolhendo elemento com menos f(a).... Escolhido: " + itemMenor.elemento);
   document.getElementById(itemMenor.elemento).parentNode.classList.add("borda-caminho");
   closed.push(itemMenor);
   opend.splice(indexMenor, 1);
@@ -107,11 +109,11 @@ async function abrirAdjacente(elemento, final) {
         custoPai = item.custoReal;
       }
     });
-    console.log("Pegando elementos adjacentes de " + elemento);
+    //console.log("Pegando elementos adjacentes de " + elemento);
     if (adjacenteElemento) {
       for (let i = 0; i < adjacenteElemento.length; i++) {
         let adjacente = elementosJson[elemento].adjacentes[i];
-        console.log("Adjacente: " + adjacente)
+        //console.log("Adjacente: " + adjacente)
         let hasAdjacente = false;
         closed.forEach(function (item) {
           if(item.elemento == adjacente){
@@ -153,7 +155,7 @@ function getCaminho(elemento, caminho) {
     return caminho;
   } else {
     caminho = " -> " + elemento.elemento + caminho;
-    console.log(elemento)
+    //console.log(elemento)
     let pai = elemento.pai;
     let elementoPai = null;
     closed.forEach(function (item) {
