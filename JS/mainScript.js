@@ -50,12 +50,14 @@ function selecionarElementosFinalEInicial(){
 function fazerBusca(){
   if(opened.length != 0){
     opened.forEach(function(item) {
-      document.getElementById(item.elemento).parentNode.classList.remove("borda-caminho");
-      document.getElementById(item.elemento).parentNode.classList.remove("fundo-caminho");
+      document.getElementById(item.elemento).parentNode.classList.remove("no-aberto");
+      document.getElementById(item.elemento).parentNode.classList.remove("caminho-final");
+      document.getElementById(item.elemento).parentNode.classList.remove("visitado");
     });
     closed.forEach(function(item) {
-      document.getElementById(item.elemento).parentNode.classList.remove("borda-caminho");
-      document.getElementById(item.elemento).parentNode.classList.remove("fundo-caminho");
+      document.getElementById(item.elemento).parentNode.classList.remove("no-aberto");
+      document.getElementById(item.elemento).parentNode.classList.remove("caminho-final");
+      document.getElementById(item.elemento).parentNode.classList.remove("visitado");
     });
   }
   opened = [];
@@ -82,9 +84,7 @@ async function executarAlgoritmo(elemento, final) {
     }
   });
   if(itemMenor.elemento == final){
-    //console.log("FINALIZANDO ALGORITIMO")
     let caminhoFinal = await getCaminho(itemMenor, "");
-    // console.log("CAMINHO: " + caminhoFinal);
     const result = caminhoFinal.split(" -> ");
     pintarCaminho(result);
     sessionStorage.setItem('closed', JSON.stringify(closed));
@@ -93,13 +93,13 @@ async function executarAlgoritmo(elemento, final) {
     sessionStorage.setItem('opened', JSON.stringify(opened));
     return
   }
-  //console.log("Escolhendo elemento com menos f(a).... Escolhido: " + itemMenor.elemento);
-  document.getElementById(itemMenor.elemento).parentNode.classList.add("borda-caminho");
+  document.getElementById(itemMenor.elemento).parentNode.classList.remove("no-aberto");
+  document.getElementById(itemMenor.elemento).parentNode.classList.add("visitado");
   closed.push(itemMenor);
   opened.splice(indexMenor, 1);
   setTimeout(function() {
     executarAlgoritmo(itemMenor.elemento, final);
-  }, 10);
+  }, 1000);
 }
 
 async function abrirAdjacente(elemento, final) {
@@ -111,11 +111,9 @@ async function abrirAdjacente(elemento, final) {
         custoPai = item.custoReal;
       }
     });
-    //console.log("Pegando elementos adjacentes de " + elemento);
     if (adjacenteElemento) {
       for (let i = 0; i < adjacenteElemento.length; i++) {
         let adjacente = elementosJson[elemento].adjacentes[i];
-        //console.log("Adjacente: " + adjacente)
         let hasAdjacente = false;
         closed.forEach(function (item) {
           if(item.elemento == adjacente){
@@ -135,6 +133,7 @@ async function abrirAdjacente(elemento, final) {
             let fa = fh + custoReal;
             const elementoAtual = { elemento: adjacente, avaliacao: fa, custoReal: custoReal, heuristica: fh, pai: elemento };
             opened.push(elementoAtual);
+            document.getElementById(adjacente).parentNode.classList.add("no-aberto");
           }
         }
       }
@@ -157,7 +156,6 @@ function getCaminho(elemento, caminho) {
     return caminho;
   } else {
     caminho = " -> " + elemento.elemento + caminho;
-    //console.log(elemento)
     let pai = elemento.pai;
     let elementoPai = null;
     closed.forEach(function (item) {
@@ -178,7 +176,7 @@ function getCaminho(elemento, caminho) {
 
 function pintarCaminho(caminho){
   caminho.forEach(function (item) {
-    document.getElementById(item).parentNode.classList.add("fundo-caminho");
+    document.getElementById(item).parentNode.classList.add("caminho-final");
   });
 }
 
@@ -189,7 +187,6 @@ function calcularHeuristica(elemento, final){
   return resultado;
 }
 
-//Modal
 const modal = document.querySelector('.modal-overlay')
 
 function openModal(){

@@ -122,7 +122,7 @@ h1{
     
 h2{
     text-align: center;
-    font-size: 24px;
+    font-size: 24px;    
     color: #666;
     margin-top: 10px;
 }
@@ -131,6 +131,8 @@ table tr td{
     border-radius: 5px;
     text-align: center;
     padding: 10px;
+    height: 50px;
+    width: 50px;
 }
 
 .tabelaperiodica{
@@ -138,6 +140,7 @@ table tr td{
     height: 100vh;
     justify-content: center;
     align-items: center;
+    display: flex;
 }
 
 .excessao:hover{
@@ -192,11 +195,17 @@ table tr td{
     font-size: 15px;
 }
 
-.borda-caminho{  
-    outline: #000000 3px solid;
+.no-aberto{  
+    /* outline: #7b0156 3px solid; */
+    background-color: #f580805e;
 }
 
-.fundo-caminho{  
+.visitado{  
+    /* outline: #000000 3px solid; */
+    background-color: #80cbfe6a;
+}
+
+.caminho-final{  
     background-color: #dfdfdf;
 }
 
@@ -303,7 +312,7 @@ hr{
 }
 
 /*Fomatação - Dimensão Colunas*/
-table td:first-child{
+/* table td:first-child{
     width: 70px;
 }
 
@@ -373,4 +382,4 @@ table td:nth-child(17){
 
 table td:nth-child(18){
     width: 70px;
-}
+} */
