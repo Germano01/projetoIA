@@ -100,7 +100,7 @@ async function executarAlgoritmo(elemento, final) {
   opened.splice(indexMenor, 1);
   setTimeout(function() {
     executarAlgoritmo(itemMenor.elemento, final);
-  }, 1000);
+  }, 10);
 }
 
 async function abrirAdjacente(elemento, final) {
@@ -191,9 +191,16 @@ function calcularHeuristica(elemento, final){
 const modal = document.querySelector('.modal-overlay')
 
 function openModal(){
+  if (elementosPressCSS.length == 2){
+    let nomeInicial = elementosPressCSS[0].querySelector(".siglacor").innerHTML;
+    let nomeFinal = elementosPressCSS[1].querySelector(".siglacor").innerHTML;
+    document.getElementById('elementos_popup').innerHTML = 'Árvore de Busca do Elemento ' +nomeInicial + ' ao ' +nomeFinal;
+  }
   modal.classList.add('active')
+  
 }
 
 function closeModal(){
   modal.classList.remove('active')
 }
+
