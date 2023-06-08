@@ -87,11 +87,10 @@ async function executarAlgoritmo(elemento, final) {
     // console.log("CAMINHO: " + caminhoFinal);
     const result = caminhoFinal.split(" -> ");
     pintarCaminho(result);
-    sessionStorage.setItem('closed', closed);
-    //let item = sessionStorage.getItem('closed')
-    sessionStorage.setItem('opened', opened);
-    console.table(closed)
-    console.table(opened)
+    sessionStorage.setItem('closed', JSON.stringify(closed));
+    // let item = JSON.parse(sessionStorage.getItem('closed'))
+    // console.log(item)
+    sessionStorage.setItem('opened', JSON.stringify(opened));
     return
   }
   //console.log("Escolhendo elemento com menos f(a).... Escolhido: " + itemMenor.elemento);
