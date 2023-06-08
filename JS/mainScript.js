@@ -4,6 +4,7 @@ let elementosJson;
 let opened = [];
 let closed = [];
 
+
 async function pegarJSON() {
   try {
     const response = await fetch('elementos.json');
