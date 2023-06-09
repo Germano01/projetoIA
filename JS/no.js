@@ -1,0 +1,63 @@
+class No {
+    constructor(elemento, avaliacao, custoReal, heuristica, pai) {
+      this.elemento = elemento;
+      this.avaliacao = avaliacao;
+      this.custoReal = custoReal;
+      this.heuristica = heuristica;
+      this.pai = pai;
+    }
+  
+    getCustoReal(custoPai) {
+        this.custoReal =  elementosJson[this.elemento].numeroAtomico +
+            elementosJson[this.pai].numeroAtomico
+        if (custoPai != null) {
+            this.custoReal = this.custoReal + custoPai
+        }
+    }
+
+    calcularFA() {
+        this.avaliacao =  this.custoReal + this.heuristica;
+    }
+  
+    calcularHeuristica() {
+      let heuristica1 =
+        Math.abs(
+          (elementosJson[final].grupo * 0.3) *
+            (elementosJson[final].periodo * 0.7) -
+            (elementosJson[this.elemento].grupo * 0.3) *
+              (elementosJson[this.elemento].periodo * 0.7)
+        );
+      let heuristica2 =
+        Math.abs(
+          elementosJson[final].numeroAtomico -
+            elementosJson[this.elemento].numeroAtomico
+        );
+      let resultado = heuristica1 + heuristica2;
+      this.heuristica = resultado;
+    }
+  
+    getCaminho(caminho) {
+      if (this.pai == null) {
+        caminho = this.elemento + caminho;
+        return caminho;
+      } else {
+        caminho = " -> " + this.elemento + caminho;
+        let pai = this.pai;
+        let elementoPai = null;
+        closed.forEach((item) => {
+          if (item.elemento == pai) {
+            if (elementoPai != null) {
+              if (item.avaliacao < elementoPai.avaliacao) {
+                elementoPai = item;
+              }
+            } else {
+              elementoPai = item;
+            }
+          }
+        });
+        let resultado = elementoPai.getCaminho(caminho);
+        return resultado;
+      }
+    }
+  }
+  
