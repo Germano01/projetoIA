@@ -10,8 +10,8 @@ async function pegarJSON() {
 
 async function eventos() {
     elementos = await pegarJSON();
-    let listaFechada = JSON.parse(sessionStorage.getItem('closed'));
-    let listaAberta = JSON.parse(sessionStorage.getItem('opened'));
+    let listaFechada = closed;
+    let listaAberta = opened;
     console.table(listaFechada);
     console.table(listaAberta);
 
@@ -68,5 +68,5 @@ async function eventos() {
 }
 
 window.addEventListener("load", function () {
-    eventos();
+    //eventos();
 });
