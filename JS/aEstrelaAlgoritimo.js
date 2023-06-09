@@ -83,7 +83,7 @@ async function abrirAdjacente(elemento) {
               
               opened.forEach(function (item) {
                 if(item.elemento == adjacente){
-                  if(item.avaliacao == elementoAtual.avaliacao)
+                  if((item.avaliacao == elementoAtual.avaliacao) || (item.pai == elementoAtual.pai))
                     hasAdjacente = true
                 }
               })
