@@ -10,9 +10,12 @@ async function pegarJSON() {
 
 async function eventos() {
     elementos = await pegarJSON();
+    let listaFechada = JSON.parse(sessionStorage.getItem('closed'));
+    let listaAberta = JSON.parse(sessionStorage.getItem('opened'));
+    console.table(listaFechada);
+    console.table(listaAberta);
 
-    var fechada = ["Na", "Mg", "Ca", "Sr", "Y"];
-    var aberta = ["Li", "K", "Be", "Rb", "Sc", "Ti"];
+
     var nosCriadosEmArvore = [];
 
     function geraNo(x, pai) {
@@ -53,21 +56,8 @@ async function eventos() {
                 if (!nosCriadosEmArvore.includes(adjacente) && (aberta.includes(adjacente) || fechada.includes(adjacente))) {
                     nosCriadosEmArvore.push(adjacente);
                     nosRow += geraNo(adjacente, elemento);
-
-                    //essa parte irei adicionar os abertos
-                    var adjancentesAbertos = elementos[adjacente].adjacentes;;
-                    if (adjancentesAbertos) {
-                        for (let i = 0; i < adjancentesAbertos.length; i++) {
-                            const adjancenteAberto = adjancentesAbertos[i];
-                            if ((!nosCriadosEmArvore.includes(adjancentesAbertos)) && (!fechada.includes(adjancentesAbertos)) && aberta.includes(adjancenteAberto)) {
-                                //console.log("pai: ", adjacente,"/ filho:", adjancenteAberto);
-                            }
-                            
-                        }
-                    }
                 }
             }
-            //console.log(nosRow);
             document.getElementById('arvore').innerHTML += `
             <div class="row">
                 ${nosRow}
