@@ -13,6 +13,7 @@ function fazerBusca(){
       });
     }
     limparListasNaTela();
+    document.getElementById("solucoes").innerHTML = ``;
     opened = [];
     closed = [];
     const noFechado = new No(elementosPressionados[0], 0, 0, 0, null);
@@ -36,9 +37,15 @@ async function executarAlgoritmo(elemento) {
     closed.push(itemMenor);
     opened.splice(0, 1);
     if(itemMenor.elemento == final){
-      let caminhoSolucaoOtima = await itemMenor.getCaminho("");
-      const result = caminhoSolucaoOtima.split(" -> ");
+      solucaoOtima = await itemMenor.getSolucaoOtima([]);
+      const result = solucaoOtima.split(" -> ");
       pintarCaminho(result);
+      itemMenor.getOutrasSolucoes("");
+      opened.forEach(function (item) {
+        if (item.elemento == final) {
+          item.getOutrasSolucoes([]);
+        }
+      });  
       mostrarListasNaTela()
       return
     }

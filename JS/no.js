@@ -36,9 +36,10 @@ class No {
       this.heuristica = resultado;
     }
   
-    getCaminho(caminho) {
+    getSolucaoOtima(caminho) {
       if (this.pai == null) {
         caminho = this.elemento + caminho;
+        document.getElementById("solucao-otima").innerHTML= caminho;
         return caminho;
       } else {
         caminho = " -> " + this.elemento + caminho;
@@ -55,8 +56,28 @@ class No {
             }
           }
         });
-        let resultado = elementoPai.getCaminho(caminho);
+        let resultado = elementoPai.getSolucaoOtima(caminho);
         return resultado;
+      }
+    }
+
+    getOutrasSolucoes(caminho){
+      if (this.pai == null) {
+        caminho = this.elemento + caminho;
+        console.log("caminoh: " + caminho)
+        if(caminho != solucaoOtima){
+          document.getElementById("solucoes").innerHTML+= 
+          `<p> ${caminho} </p>`;
+        }
+        return caminho;
+      } else {
+        caminho = " -> " + this.elemento + caminho;
+        let pai = this.pai;
+        closed.forEach((item) => {
+          if (item.elemento == pai) {
+             return item.getOutrasSolucoes(caminho);
+          }
+        });
       }
     }
   }

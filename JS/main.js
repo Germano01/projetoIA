@@ -3,6 +3,7 @@ let elementosJson;
 let opened = [];
 let closed = [];
 let final;
+let solucaoOtima;
 
 //pega dados do JSON
 async function pegarJSON() {
