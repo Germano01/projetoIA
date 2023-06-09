@@ -129,10 +129,10 @@ async function abrirAdjacente(elemento) {
     closedString += "}"
 
     document.getElementById("opened").innerHTML+= `
-      <p> ${openedString} </p>
+      <p class="item"> ${openedString} </p>
     `;
 
     document.getElementById("closed").innerHTML+= `
-    <p> ${closedString} </p>
+    <p class="item"> ${closedString} </p>
     `;
   }
