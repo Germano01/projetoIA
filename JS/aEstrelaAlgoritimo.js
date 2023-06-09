@@ -89,6 +89,7 @@ async function abrirAdjacente(elemento) {
               })
               if(!hasAdjacente){
                 opened.push(elementoAtual);
+                //insertionSort();
                 removeOrAddClass(adjacente, ["no-aberto"], false);
               }
             }
@@ -98,6 +99,25 @@ async function abrirAdjacente(elemento) {
       resolve(); 
     });
   }
+
+  function insertionSort() {
+    const size = opened.length;
+    
+    for (let i = 1; i < size; i++) {
+      const atual = opened[i];
+      let j = i - 1;
+  
+      while (j >= 0 && opened[j].avaliacao > atual.avaliacao) {
+        opened[j + 1] = opened[j];
+        j--;
+      }
+  
+      opened[j + 1] = atual;
+    }
+  
+    return opened;
+  }
+  
 
   function limparListasNaTela(){
     document.getElementById("opened").innerHTML= `
@@ -116,7 +136,7 @@ async function abrirAdjacente(elemento) {
       if(index != 0){
         openedString += ", ";
       }
-      openedString += item.elemento;
+      openedString += `${item.elemento} (${item.avaliacao}) - pai: (${item.pai}) `;
     })
     openedString += "}"
 

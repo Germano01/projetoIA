@@ -33,7 +33,7 @@ async function eventos() {
         </div>
         `;
     }
-    fechada.forEach(elemento => {
+    listaFechada.forEach(elemento => {
         var elementoJson = elementos[elemento];
         if (elementoJson) {
             //Se o elemento ainda não estiver na árvore (pode já ter sido adicionado quando passou pelos adjacentes), não adiciona novamente

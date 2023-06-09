@@ -16,7 +16,7 @@ class No {
     }
 
     calcularFA() {
-        this.avaliacao =  this.custoReal + this.heuristica;
+        this.avaliacao = Number((this.custoReal + this.heuristica).toFixed(2));
     }
   
     calcularHeuristica() {
@@ -32,7 +32,7 @@ class No {
           elementosJson[final].numeroAtomico -
             elementosJson[this.elemento].numeroAtomico
         );
-      let resultado = heuristica1 + heuristica2;
+      let resultado = Number((heuristica1 + heuristica2).toFixed(2));
       this.heuristica = resultado;
     }
   
