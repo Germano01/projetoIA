@@ -1,15 +1,19 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
 }
 
-body{
-    font:  16px Arial, Helvetica, sans-serif;
-    background-color: white;
+body {
+    font: 16px Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
 }
 
+li{
+    list-style: none;
+}
 
-#elementoSelecionadoInicial, #elementoSelecionadoFinal {
+#elementoSelecionadoInicial,
+#elementoSelecionadoFinal {
     width: 10%;
     height: 20%;
     border-radius: 15px;
@@ -18,7 +22,8 @@ body{
     text-align: center;
     font-weight: bold;
     padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); /* Adicione sombra */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    /* Adicione sombra */
     top: 120%;
 }
 
@@ -26,16 +31,16 @@ body{
     right: 50%;
     transform: translateX(50% -50%);
     margin-right: 20px;
-  }
-  
-  #elementoSelecionadoFinal {
+}
+
+#elementoSelecionadoFinal {
     left: 50%;
     transform: translateX(-50%, -50%);
     margin-right: 20px;
-  }
+}
 
 /*BTN OPEN MODAL*/
-#open-modal{
+#open-modal {
     font-size: 20px;
     padding: 10px;
     border: none;
@@ -45,7 +50,7 @@ body{
     cursor: pointer;
 }
 
-#botao-buscar{
+#botao-buscar {
     font-size: 20px;
     padding: 10px;
     border: none;
@@ -55,10 +60,16 @@ body{
     cursor: pointer;
 }
 
+#elementos_popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .separador {
     width: 30%;
     height: 1px;
-    margin: 0 auto;
+    margin: 5px auto;
     background-color: #ccc;
 }
 
@@ -75,19 +86,19 @@ body{
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
-    
-.menu ul{
+
+.menu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-    
-.menu li{
+
+.menu li {
     display: inline-block;
     margin-right: 10px;
 }
-    
-.menu a{
+
+.menu a {
     position: relative;
     display: inline-block;
     padding: 5px 10px;
@@ -111,7 +122,7 @@ body{
     transform: scaleX(1);
 }
 
-h1{
+h1 {
     text-align: center;
     font-size: 48px;
     color: #333;
@@ -119,101 +130,139 @@ h1{
     letter-spacing: 3px;
     margin-top: 50px;
 }
-    
-h2{
+
+h2 {
     text-align: center;
-    font-size: 24px;    
+    font-size: 24px;
     color: #666;
     margin-top: 10px;
 }
 
-table tr td{
+table tr td {
     border-radius: 5px;
     text-align: center;
     padding: 10px;
     width: 70px;
 }
 
-.tabelaperiodica{
+/*PopUp Inicial - Instruções*/
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    text-align: center;
+    z-index: 999;
+}
+
+.close-btn {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-btn:hover {
+    background: #555;
+}
+/*Fim PopUp inicial*/
+
+.tabelaperiodica {
     width: 100%;
     height: 100vh;
     justify-content: center;
     align-items: center;
 }
 
-.excessao:hover{
+.excessao:hover {
     background: none;
 }
 
-.amarelo{
+.amarelo {
     background-color: #d4ba0e;
     border-radius: 5px;
 }
 
-.verde{
+.verde {
     background-color: #38b66b;
 }
 
-.azul{
+.azul {
     background-color: #6bc6ef;
 }
 
-.laranja{
+.laranja {
     background-color: #f58132;
 }
 
-.inclicaveis{
+.inclicaveis {
     background-color: #8b8b8b;
 }
 
-.rosa{
+.rosa {
     background-color: #f27eb2;
 }
 
-.roxo{
+.roxo {
     background-color: #875baa;
 }
 
-.hidrogenio{
+.hidrogenio {
     background-color: #3b56a6;
     font-weight: bold;
 }
 
-.numero{
+.numero {
     float: right;
     font-size: 12px;
 }
 
-.nome{
+.nome {
     font-size: 11px;
 }
 
-.siglacor{
+.siglacor {
     font-weight: bold;
     font-size: 15px;
 }
 
-.no-aberto{  
+.no-aberto {
     /* outline: #7b0156 3px solid; */
     background-color: #f580805e;
 }
 
-.visitado{  
+.visitado {
     /* outline: #000000 3px solid; */
     background-color: #80cbfe6a;
 }
 
-.caminho-final{  
+.caminho-final {
     background-color: #dfdfdf;
 }
 
-table tr td:hover:not(.excessao, .inclicaveis){
+table tr td:hover:not(.excessao, .inclicaveis) {
     background-color: black;
     color: white;
     cursor: pointer;
 }
 
-.elementos-pressionados:not(.excessao, .inclicaveis){
+.elementos-pressionados:not(.excessao, .inclicaveis) {
     background-color: black;
     color: white;
     font-weight: bold;
@@ -221,7 +270,7 @@ table tr td:hover:not(.excessao, .inclicaveis){
 
 
 /*Formatação - pop-up - INICIO*/
-.modal-overlay{
+.modal-overlay {
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     height: 100%;
@@ -230,7 +279,7 @@ table tr td:hover:not(.excessao, .inclicaveis){
     display: none;
 }
 
-.janela{
+.janela {
     background-color: white;
     width: 90%;
     height: 80%;
@@ -238,36 +287,43 @@ table tr td:hover:not(.excessao, .inclicaveis){
     position: relative;
     padding: 30px;
     border-radius: 10px;
+    overflow-y: auto;
+    /* Adiciona apenas o scroll vertical */
+    overflow-x: hidden;
+    /* Remove o scroll horizontal */
 }
 
-.active{
+.active {
     display: flex;
 }
 
 /*Começo Animação Modal*/
-.active .janela{
+.active .janela {
     animation: janela .60s;
 }
 
-@keyframes janela{
-    from{
+@keyframes janela {
+    from {
         opacity: 0;
         transform: translate3d(0, -60px, 0);
-    }to{
+    }
+
+    to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
 }
+
 /*Fim Animação Modal*/
 
 /*Botões Modal*/
-.btns-modal{
+.btns-modal {
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
 }
 
-.btns-modal button{
+.btns-modal button {
     font-size: medium;
     padding: 10px;
     border: none;
@@ -276,15 +332,11 @@ table tr td:hover:not(.excessao, .inclicaveis){
     cursor: pointer;
 }
 
-.btnOK{
-    background-color: blue;
-}
-
-.btnClose{
+.btnClose {
     background-color: brown;
 }
 
-.opcoes{
+.opcoes {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -293,91 +345,70 @@ table tr td:hover:not(.excessao, .inclicaveis){
     position: relative;
 }
 
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 83%;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 80%;
+}
+
+
 /*Responsividade Modal*/
-@media(max-width: 500px){
-    .janela{
+@media(max-width: 500px) {
+    .janela {
         padding: 100px;
         width: 80%;
     }
-    span, .btns button{
+
+    span,
+    .btns button {
         font-size: smaller;
     }
 }
 
-hr{
-    border: 0px;
-    border-top: 1px solid lightgrey;
+/*Fomatação - Página Integrantes*/
+.person {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 28%;
+    padding: 40px;
 }
 
-/*Fomatação - Dimensão Colunas*/
-/* table td:first-child{
-    width: 70px;
+.person img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
 }
 
-table td:nth-child(2){
-    width: 70px;
+.person h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    align-items: left;
+    justify-content: left;
+    display: flex;
 }
 
-table td:nth-child(3){
-    width: 70px;
+.person h4 {
+    font-size: 18px;
+    margin: 0;
 }
 
-table td:nth-child(4){
-    width: 70px;
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 15px 350px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-table td:nth-child(5){
-    width: 70px;
-}
-
-table td:nth-child(6){
-    width: 70px;
-}
-
-table td:nth-child(7){
-    width: 70px;
-}
-
-table td:nth-child(8){
-    width: 70px;
-}
-
-table td:nth-child(9){
-    width: 70px;
-}
-
-table td:nth-child(10){
-    width: 70px;
-}
-
-table td:nth-child(11){
-    width: 70px;
-}
-
-table td:nth-child(12){
-    width: 70px;
-}
-
-table td:nth-child(13){
-    width: 70px;
-}
-
-table td:nth-child(14){
-    width: 70px;
-}
-
-table td:nth-child(15){
-    width: 70px;
-}
-
-table td:nth-child(16){
-    width: 70px;
-}
-
-table td:nth-child(17){
-    width: 70px;
-}
-
-table td:nth-child(18){
-    width: 70px;
-} */
+/*Fim formatação Página Integrantes*/
