@@ -29,17 +29,11 @@ async function executarAlgoritmo(elemento) {
       return;
     }
     await abrirAdjacente(elemento); 
+    mostrarListasNaTela()
     let itemMenor = opened[0];
-    let indexMenor = 0;
-    opened.forEach(function (item, index) {
-      if (item.avaliacao < itemMenor.avaliacao) {
-        itemMenor = item;
-        indexMenor = index;
-      }
-    });
     if(itemMenor.elemento == final){
-      let caminhoFinal = await itemMenor.getCaminho("");
-      const result = caminhoFinal.split(" -> ");
+      let caminhoSolucaoOtima = await itemMenor.getCaminho("");
+      const result = caminhoSolucaoOtima.split(" -> ");
       pintarCaminho(result);
       sessionStorage.setItem('closed', JSON.stringify(closed));
       sessionStorage.setItem('opened', JSON.stringify(opened));
@@ -48,8 +42,7 @@ async function executarAlgoritmo(elemento) {
     removeOrAddClass(itemMenor.elemento, ["no-aberto"], true);
     removeOrAddClass(itemMenor.elemento, ["visitado"], false);   
     closed.push(itemMenor);
-    opened.splice(indexMenor, 1);
-    mostrarListasNaTela()
+    opened.splice(0, 1);
     setTimeout(function() {
       executarAlgoritmo(itemMenor.elemento);
     }, 10);
@@ -89,7 +82,7 @@ async function abrirAdjacente(elemento) {
               })
               if(!hasAdjacente){
                 opened.push(elementoAtual);
-                //insertionSort();
+                ordenarOpened();
                 removeOrAddClass(adjacente, ["no-aberto"], false);
               }
             }
@@ -100,7 +93,7 @@ async function abrirAdjacente(elemento) {
     });
   }
 
-  function insertionSort() {
+  function ordenarOpened() {
     const size = opened.length;
     
     for (let i = 1; i < size; i++) {
@@ -136,7 +129,7 @@ async function abrirAdjacente(elemento) {
       if(index != 0){
         openedString += ", ";
       }
-      openedString += `${item.elemento} (${item.avaliacao}) - pai: (${item.pai}) `;
+      openedString += `${item.elemento} (${item.avaliacao}) `;
     })
     openedString += "}"
 
