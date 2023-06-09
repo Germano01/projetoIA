@@ -14,4 +14,5 @@ function closeModal(){
 
 function closePopup() {
   document.querySelector('.popup-overlay').style.display = 'none';
+  sessionStorage.setItem('alreadyVisited', true)
 }

@@ -78,8 +78,17 @@ async function abrirAdjacente(elemento) {
               elementoAtual.calcularHeuristica();
               elementoAtual.getCustoReal(custoPai);
               elementoAtual.calcularFA();
-              opened.push(elementoAtual);
-              removeOrAddClass(adjacente, ["no-aberto"], false);
+              
+              opened.forEach(function (item) {
+                if(item.elemento == adjacente){
+                  if(item.avaliacao == elementoAtual.avaliacao)
+                    hasAdjacente = true
+                }
+              })
+              if(!hasAdjacente){
+                opened.push(elementoAtual);
+                removeOrAddClass(adjacente, ["no-aberto"], false);
+              }
             }
           }
         }

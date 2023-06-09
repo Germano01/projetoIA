@@ -17,6 +17,12 @@ async function pegarJSON() {
 
 //chama funcao selecionarElementosFinalEInicial ao carregar página
 window.onload = async function() {
+    let visited = sessionStorage.getItem('alreadyVisited')
+    if(visited){
+      document.querySelector('.popup-overlay').style.display = 'none';
+    }else{
+      document.querySelector('.popup-overlay').style.display = 'flex';
+    }
     selecionarElementosFinalEInicial();
 };
 
