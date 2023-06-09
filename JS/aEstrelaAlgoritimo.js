@@ -31,18 +31,17 @@ async function executarAlgoritmo(elemento) {
     await abrirAdjacente(elemento); 
     mostrarListasNaTela()
     let itemMenor = opened[0];
-    if(itemMenor.elemento == final){
-      let caminhoSolucaoOtima = await itemMenor.getCaminho("");
-      const result = caminhoSolucaoOtima.split(" -> ");
-      pintarCaminho(result);
-      sessionStorage.setItem('closed', JSON.stringify(closed));
-      sessionStorage.setItem('opened', JSON.stringify(opened));
-      return
-    }
     removeOrAddClass(itemMenor.elemento, ["no-aberto"], true);
     removeOrAddClass(itemMenor.elemento, ["visitado"], false);   
     closed.push(itemMenor);
     opened.splice(0, 1);
+    if(itemMenor.elemento == final){
+      let caminhoSolucaoOtima = await itemMenor.getCaminho("");
+      const result = caminhoSolucaoOtima.split(" -> ");
+      pintarCaminho(result);
+      mostrarListasNaTela()
+      return
+    }
     setTimeout(function() {
       executarAlgoritmo(itemMenor.elemento);
     }, 10);
