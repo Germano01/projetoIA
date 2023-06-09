@@ -23,8 +23,7 @@ li{
     font-weight: bold;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    /* Adicione sombra */
-    top: 120%;
+    top: 130%;
 }
 
 #elementoSelecionadoInicial {
@@ -86,6 +85,27 @@ li{
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
+
+/*Legenda Tabela*/
+.legenda {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.legenda span {
+    position: relative;
+    margin-left: 280px;
+    top: 300px;
+}
+
+.quadrado {
+    position: absolute;
+    top: 300px;
+    left: 250px;
+    width: 20px;
+    height: 20px;
+}
+/*Fim Legenda Tabela*/
 
 .menu ul {
     list-style-type: none;
@@ -244,16 +264,19 @@ table tr td {
 
 .no-aberto {
     /* outline: #7b0156 3px solid; */
-    background-color: #f580805e;
+    background-color: #081132;
+    color: white;
 }
 
 .visitado {
     /* outline: #000000 3px solid; */
-    background-color: #80cbfe6a;
+    background-color: #8B0000;
+    color: white;
 }
 
 .caminho-final {
     background-color: #dfdfdf;
+    color: #000;
 }
 
 table tr td:hover:not(.excessao, .inclicaveis) {
