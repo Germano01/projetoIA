@@ -204,3 +204,7 @@ function closeModal(){
   modal.classList.remove('active')
 }
 
+function closePopup() {
+  document.querySelector('.popup-overlay').style.display = 'none';
+}
+

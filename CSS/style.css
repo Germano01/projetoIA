@@ -8,6 +8,10 @@ body {
     background-color: #f2f2f2;
 }
 
+li{
+    list-style: none;
+}
+
 #elementoSelecionadoInicial,
 #elementoSelecionadoFinal {
     width: 10%;
@@ -171,6 +175,7 @@ table tr td {
     padding: 10px 20px;
     margin-top: 20px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .close-btn:hover {
