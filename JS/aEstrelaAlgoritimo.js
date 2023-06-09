@@ -12,6 +12,7 @@ function fazerBusca(){
         removeOrAddClass(item.elemento, ["no-aberto", "caminho-final", "visitado"], true);
       });
     }
+    limparListasNaTela();
     opened = [];
     closed = [];
     const noFechado = new No(elementosPressionados[0], 0, 0, 0, null);
@@ -48,6 +49,7 @@ async function executarAlgoritmo(elemento) {
     removeOrAddClass(itemMenor.elemento, ["visitado"], false);   
     closed.push(itemMenor);
     opened.splice(indexMenor, 1);
+    mostrarListasNaTela()
     setTimeout(function() {
       executarAlgoritmo(itemMenor.elemento);
     }, 10);
@@ -95,4 +97,42 @@ async function abrirAdjacente(elemento) {
       }
       resolve(); 
     });
+  }
+
+  function limparListasNaTela(){
+    document.getElementById("opened").innerHTML= `
+      <p class="titulo">Abertos (opened): </p>
+    `;
+
+    document.getElementById("closed").innerHTML= `
+      <p class="titulo">Fechados (closed): </p>
+    `;
+  }
+
+  function mostrarListasNaTela(){
+    let openedString = "{", closedString = "{";
+
+    opened.forEach(function (item, index) {
+      if(index != 0){
+        openedString += ", ";
+      }
+      openedString += item.elemento;
+    })
+    openedString += "}"
+
+    closed.forEach(function (item, index) {
+      if(index != 0){
+        closedString += ", ";
+      }
+      closedString += item.elemento;
+    })
+    closedString += "}"
+
+    document.getElementById("opened").innerHTML+= `
+      <p> ${openedString} </p>
+    `;
+
+    document.getElementById("closed").innerHTML+= `
+    <p> ${closedString} </p>
+    `;
   }

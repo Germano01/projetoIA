@@ -60,14 +60,14 @@ async function eventos() {
                         for (let i = 0; i < adjancentesAbertos.length; i++) {
                             const adjancenteAberto = adjancentesAbertos[i];
                             if ((!nosCriadosEmArvore.includes(adjancentesAbertos)) && (!fechada.includes(adjancentesAbertos)) && aberta.includes(adjancenteAberto)) {
-                                console.log("pai: ", adjacente,"/ filho:", adjancenteAberto);
+                                //console.log("pai: ", adjacente,"/ filho:", adjancenteAberto);
                             }
                             
                         }
                     }
                 }
             }
-            console.log(nosRow);
+            //console.log(nosRow);
             document.getElementById('arvore').innerHTML += `
             <div class="row">
                 ${nosRow}

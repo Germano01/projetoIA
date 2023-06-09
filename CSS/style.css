@@ -412,3 +412,15 @@ hr {
 }
 
 /*Fim formatação Página Integrantes*/
+
+/* Listas abertos e fechados */
+
+#listas{
+    display: flex;
+    margin-bottom: 50px;
+}
+
+#opened, #closed{
+    margin-left: 50px;
+    max-width: 40vw;
+}
