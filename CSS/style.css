@@ -483,3 +483,79 @@ hr {
 #solucoes, #solucao-otima{
     padding-left: 25px;
 }
+
+/*Media queries para tornar a página responsiva*/
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .legenda span {
+        position: static;
+        margin-left: 0;
+        top: 0;
+    }
+
+    .quadrado {
+        position: static;
+        top: 0;
+        left: 0;
+        margin: 10px auto;
+    }
+
+    .popup-content {
+        max-width: 90%;
+    }
+
+    .tabelaperiodica {
+        width: 100%;
+        height: 100%;
+    }
+
+    .janela {
+        width: 90%;
+        margin: 10vh auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        font-size: 12px;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .legenda span {
+        position: static;
+        margin-left: 0;
+        top: 0;
+    }
+
+    .quadrado {
+        position: static;
+        top: 0;
+        left: 0;
+        margin: 10px auto;
+    }
+
+    .popup-content {
+        max-width: 90%;
+    }
+
+    .tabelaperiodica {
+        width: 100%;
+        height: 100%;
+    }
+
+    .janela {
+        width: 90%;
+        margin: 10vh auto;
+    }
+}
