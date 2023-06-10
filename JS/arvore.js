@@ -34,28 +34,37 @@ async function carregaArvore() {
             nosRow += geraNo(arr[i].elemento, arr[i].pai, arr[i].avaliacao != 0 ? arr[i].avaliacao : '-');
             nosJaCriados.push(arr[i].elemento);
             
-            verificaRemoverListas(arr[i]);
+            verificaRemoverMergedListas(arr[i]);
 
+            let adjacenteJaCriado = false;
             for (let j = 0; j < mergedListas.length; j++) {
                 if (mergedListas[j].pai === arr[i].elemento) {
-                    adjacentes[contagemAdjacente++] = mergedListas[j];
+                    for (let k = 0; k < Object.keys(adjacentes).length; k++) {
+                        if(adjacentes[k].indice === mergedListas[j].indice){
+                            adjacenteJaCriado = true;
+                        }
+                    }
+                    if (!adjacenteJaCriado) {
+                        adjacentes[contagemAdjacente++] = mergedListas[j];
+                    }                                       
                 }
             }
         }
 
-        // console.table(adjacentes);
-        // console.log("\n");
+        console.table(adjacentes);
+        console.log("\n");
         document.getElementById('arvore').innerHTML += `
         <div class="row">
             ${nosRow}
         </div>
         `;
 
+        // se o json mergedListas estiver vazio, significa que já rodou todos da lista aberta e fechada
         if (Object.keys(mergedListas).length === 0) {
             return 0;
         }
         else {
-            // o for previne que gere nos depois da linha que já existe o no Objetivo
+            // vai previnir que gere nos depois da linha que já existe o no Objetivo
             for (let i = 0; i < nosJaCriados.length; i++) {
                 if(nosJaCriados[i] === noFinal){
                     return 1;
@@ -81,7 +90,7 @@ async function carregaArvore() {
         `;
     }
 
-    async function verificaRemoverListas(obj) {
+    async function verificaRemoverMergedListas(obj) {
         for (let i = 0; i < mergedListas.length; i++) {
             if (obj.indice === mergedListas[i].indice) {
                 await mergedListas.splice(i, 1);
