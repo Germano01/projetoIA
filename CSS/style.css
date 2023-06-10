@@ -493,6 +493,26 @@ hr {
     padding-left: 25px;
 }
 
+/*Limpar botao*/
+.reset {
+    position: absolute;
+    margin-bottom: 10px;
+    right: 50px;
+    top: 200px;
+    width: fit-content;
+}
+
+#reset-button {
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 111, 238);
+    color: white;
+    cursor: pointer;
+}
+
+
 /*velocidade botoes*/
 
 
@@ -500,7 +520,7 @@ hr {
     position: relative;
     margin-bottom: 10px;
     margin-left: 580px;
-    top: 200px;
+    top: 230px;
 }
 
 #velocidade-busca p{

@@ -4,18 +4,7 @@ function fazerBusca(){
       alert("Selecione 2 elementos!");
       return;
     }
-    if(opened.length != 0 || closed.length != 0){
-      opened.forEach(function(item) {
-        removeOrAddClass(item.elemento, ["no-aberto", "caminho-final", "visitado"], true);
-      });
-      closed.forEach(function(item) {
-        removeOrAddClass(item.elemento, ["no-aberto", "caminho-final", "visitado"], true);
-      });
-    }
-    limparListasNaTela();
-    document.getElementById("solucoes").innerHTML = ``;
-    opened = [];
-    closed = [];
+    limparDados();
     const noFechado = new No(elementosPressionados[0], 0, 0, 0, null);
     closed.push(noFechado);
     final = elementosPressionados[1];
@@ -154,4 +143,19 @@ async function abrirAdjacente(elemento) {
     document.getElementById("closed").innerHTML+= `
     <p class="item"> ${closedString} </p>
     `;
+  }
+
+  function limparDados(){
+    if(opened.length != 0 || closed.length != 0){
+      opened.forEach(function(item) {
+        removeOrAddClass(item.elemento, ["no-aberto", "caminho-final", "visitado"], true);
+      });
+      closed.forEach(function(item) {
+        removeOrAddClass(item.elemento, ["no-aberto", "caminho-final", "visitado"], true);
+      });
+    }
+    limparListasNaTela();
+    document.getElementById("solucoes").innerHTML = ``;
+    opened = [];
+    closed = [];
   }
