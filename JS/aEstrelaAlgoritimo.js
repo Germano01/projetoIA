@@ -4,6 +4,7 @@ function fazerBusca(){
       alert("Selecione 2 elementos!");
       return;
     }
+    document.getElementById('caminhos-solucoes').style.display = 'block';
     limparDados();
     const noFechado = new No(elementosPressionados[0], 0, 0, 0, null);
     closed.push(noFechado);
@@ -26,13 +27,13 @@ async function executarAlgoritmo(elemento) {
     closed.push(itemMenor);
     opened.splice(0, 1);
     if(itemMenor.elemento == final){
-      solucaoOtima = await itemMenor.getSolucaoOtima([]);
+      solucaoOtima = await itemMenor.getSolucaoOtima([], 0);
       const result = solucaoOtima.split(" -> ");
       pintarCaminho(result);
-      itemMenor.getOutrasSolucoes("");
+      itemMenor.getOutrasSolucoes("",0);
       opened.forEach(function (item) {
         if (item.elemento == final) {
-          item.getOutrasSolucoes([]);
+          item.getOutrasSolucoes([],0);
         }
       });  
       mostrarListasNaTela()
@@ -156,6 +157,7 @@ async function abrirAdjacente(elemento) {
     }
     limparListasNaTela();
     document.getElementById("solucoes").innerHTML = ``;
+    document.getElementById("solucao-otima").innerHTML = ``;
     opened = [];
     closed = [];
   }
