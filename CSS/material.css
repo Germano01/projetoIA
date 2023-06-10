@@ -36,6 +36,17 @@ html {
     overflow: hidden;    
 }
 
+#section3{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    background: #121212;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;    
+}
+
 .circle{
     position: absolute;
     top: 0;
@@ -54,6 +65,16 @@ html {
     height: 100%;
     background-color: #e51e2a;
     clip-path: circle(50% at top right);
+}
+
+.circle3{
+    position: absolute;
+    top: 400px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e51e2a;
+    clip-path: circle(60% at bottom center);
 }
 
 .menu {
@@ -152,10 +173,6 @@ html {
     transition: 0.3s ease-in-out;
 }
 
-.btnContinue a:hover{
-    transform: translateY(-10px);
-}
-
 .boxImg{
     position: absolute;
     left: 700px;
@@ -164,4 +181,56 @@ html {
 
 .boxImg img{
     width: 480px;
+}
+
+.boxImgExcessao{
+    position: absolute;
+    left: 430px;
+    top: 280px;
+}
+
+.boxImgExcessao img{
+    width: 480px;
+}
+
+/*Section3*/
+.container .textS3{
+    position: relative;
+    width: 600px;
+    margin: 0 auto;
+    bottom: 100px;
+}
+
+.container .textS3 h3{
+    color: #fff;
+    font-size: 1.5em;
+    line-height: 2em;
+    font-weight: 700;
+    margin-bottom: -30px;
+}
+
+.container .textS3 h1 span{
+    font-size: 3.5em;
+    color: #e51e2a;
+}
+
+.container .textS3 p{
+    color: #fff;
+    line-height: 20px;
+}
+
+.btnContinueS3{
+    background: #e51e2a;
+    margin: 15px auto;
+    padding: 10px 25px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.btnContinueS3 a{
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: 0.3s ease-in-out;
 }
