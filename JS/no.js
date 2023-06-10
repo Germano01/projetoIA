@@ -36,12 +36,13 @@ class No {
       this.heuristica = resultado;
     }
   
-    getSolucaoOtima(caminho) {
+    getSolucaoOtima(caminho, custo) {
       if (this.pai == null) {
         caminho = this.elemento + caminho;
-        document.getElementById("solucao-otima").innerHTML= caminho;
+        document.getElementById("solucao-otima").innerHTML= `${caminho} - (Custo: ${custo})`;
         return caminho;
       } else {
+        custo += elementosJson[this.elemento].numeroAtomico + elementosJson[this.pai].numeroAtomico;
         caminho = " -> " + this.elemento + caminho;
         let pai = this.pai;
         let elementoPai = null;
@@ -56,26 +57,26 @@ class No {
             }
           }
         });
-        let resultado = elementoPai.getSolucaoOtima(caminho);
+        let resultado = elementoPai.getSolucaoOtima(caminho, custo);
         return resultado;
       }
     }
 
-    getOutrasSolucoes(caminho){
+    getOutrasSolucoes(caminho, custo){
       if (this.pai == null) {
         caminho = this.elemento + caminho;
-        console.log("caminoh: " + caminho)
         if(caminho != solucaoOtima){
           document.getElementById("solucoes").innerHTML+= 
-          `<p> ${caminho} </p>`;
+          `<p> ${caminho} - (Custo: ${custo})</p>`;
         }
         return caminho;
       } else {
+        custo += elementosJson[this.elemento].numeroAtomico + elementosJson[this.pai].numeroAtomico;
         caminho = " -> " + this.elemento + caminho;
         let pai = this.pai;
         closed.forEach((item) => {
           if (item.elemento == pai) {
-             return item.getOutrasSolucoes(caminho);
+             return item.getOutrasSolucoes(caminho, custo);
           }
         });
       }
