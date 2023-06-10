@@ -646,31 +646,34 @@
 
 	<div class="modal-overlay">
 		<div class="janela">
-			<h2>Árvore de Busca - A*</h2>
-			<hr class="separador" />
-			<span id="elementos_popup">
-				Nenhum Elemento foi Selecionado
-			</span>
-			<hr class="separador" />
-
+			<button class="fechar" onclick="closeModal()" >&times;</button>
 			<div class="modal-content">
+				<div id="cabecalho">
+					<h2>Árvore de Busca - A*</h2>
+					<hr class="separador" />
+					<span id="elementos_popup">
+						Nenhum Elemento foi Selecionado
+					</span>
+					<hr class="separador" />
+				</div>
 				<h1>ÁRVORE DE BUSCA</h1>
 				<div class="separador"></div>
 				<div id="arvore"></div>
-			</div>
+					
 
-			<div id="listas">
-				<div id="opened">
-					<p class="titulo">Abertos (opened): </p>
-				</div>
-				<div id="closed">
-					<p class="titulo">Fechados (closed): </p>
-				</div>
-			</div>
+					<div id="listas">
+						<div id="opened">
+							<p class="titulo">Abertos (opened): </p>
+						</div>
+						<div id="closed">
+							<p class="titulo">Fechados (closed): </p>
+						</div>
+					</div>
 
-			<div class="btns-modal">
-				<button class="btnClose" onclick="closeModal()">Close</button>
-			</div>
+					<div class="btns-modal">
+						<button class="btnClose" onclick="closeModal()">Close</button>
+					</div>
+				</div>
 		</div>
 	</div>
 

@@ -31,7 +31,7 @@ async function carregaArvore() {
         let contagemAdjacente = 0;
 
         for (let i = 0; i < Object.keys(arr).length; i++) {
-            nosRow += geraNo(arr[i].elemento, arr[i].pai, '-');
+            nosRow += geraNo(arr[i].elemento, arr[i].pai, arr[i].avaliacao != 0 ? arr[i].avaliacao : '-');
             nosJaCriados.push(arr[i].elemento);
             
             verificaRemoverListas(arr[i]);

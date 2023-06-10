@@ -317,7 +317,7 @@ table tr td:hover:not(.excessao, .inclicaveis) {
     border-radius: 10px;
     overflow-y: auto;
     /* Adiciona apenas o scroll vertical */
-    overflow-x: hidden;
+    overflow-x: auto;
     /* Remove o scroll horizontal */
 }
 
@@ -373,12 +373,19 @@ table tr td:hover:not(.excessao, .inclicaveis) {
     position: relative;
 }
 
+#cabecalho{
+    min-width: 100%;
+    margin-bottom: 50px;
+}
+
 .modal-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 83%;
+    min-height: 83%;
+    min-width: 100%;
+    width: fit-content;
 }
 
 .modal-content iframe {
@@ -450,6 +457,7 @@ hr {
 
 #listas{
     display: flex;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 

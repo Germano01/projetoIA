@@ -7,12 +7,25 @@ body{
     font:  16px Arial, Helvetica, sans-serif;
     background-color: white;
 }
+
+.fechar {
+    position: fixed;
+    top: 6vh;
+    right: 5%;
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
 #arvore{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    min-width: 100%;
+    width: fit-content;
     height: auto;
 }
 .row{
@@ -34,14 +47,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    min-width: 100%;
+    width: fit-content;
     height: 100%;
 }
 .no div:nth-child(1),.no div:nth-child(2){
     border-right: .01em solid rgba(0, 0, 0, 0.1);
 }
 
-.no::before {
+/* .no::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -50,4 +64,4 @@ body{
     height: calc(100% - 20px);
     background-color: #ccc;
     transform: translateY(-50%);
-  }
+  } */
