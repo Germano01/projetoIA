@@ -404,6 +404,7 @@ table tr td:hover:not(.excessao, .inclicaveis) {
 .person {
     display: flex;
     align-items: center;
+    margin-top: 25px;
     margin-bottom: 20px;
     margin-left: 28%;
     padding: 40px;
@@ -423,11 +424,13 @@ table tr td:hover:not(.excessao, .inclicaveis) {
     align-items: left;
     justify-content: left;
     display: flex;
+    color: #fff;
 }
 
 .person h4 {
-    font-size: 18px;
+    font-size: 14px;
     margin: 0;
+    color: #8b8b8b;
 }
 
 hr {

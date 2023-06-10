@@ -7,7 +7,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
-section{
+html {
+    scroll-behavior: smooth;
+}
+
+
+#section1{
     position: relative;
     width: 100%;
     height: 100vh;
@@ -16,7 +21,19 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow: auto;    
+    overflow: HIDDEN;    
+}
+
+#section2{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    background: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;    
 }
 
 .circle{
@@ -27,6 +44,16 @@ section{
     height: 100%;
     background-color: #e51e2a;
     clip-path: circle(50% at bottom right);
+}
+
+.circle2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e51e2a;
+    clip-path: circle(50% at top right);
 }
 
 .menu {
@@ -109,20 +136,23 @@ section{
     line-height: 20px;
 }
 
-.container .text a{
-    display: inline-block;
-    margin-top: 50px;
-    padding: 10px 25px;
+.btnContinue{
     background: #e51e2a;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 25px;
+    border-radius: 20px;
+}
+
+.btnContinue a{
     color: #fff;
     font-weight: 500;
     text-decoration: none;
     letter-spacing: 1px;
-    border-radius: 40px;
     transition: 0.3s ease-in-out;
 }
 
-.container .text a:hover{
+.btnContinue a:hover{
     transform: translateY(-10px);
 }
 
