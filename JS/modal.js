@@ -9,7 +9,7 @@ function openModal(){
     document.getElementById('elementos_popup').innerHTML = 'Árvore de Busca do Elemento ' + elementosPressionados[0] + ' ao ' +elementosPressionados[1];
   }
   modal.classList.add('active')
-  eventos()
+  carregaArvore()
 }
 
 function closeModal(){

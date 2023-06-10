@@ -375,6 +375,7 @@ table tr td:hover:not(.excessao, .inclicaveis) {
 
 .modal-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 83%;
