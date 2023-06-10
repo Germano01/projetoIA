@@ -4,6 +4,7 @@ let opened = [];
 let closed = [];
 let final;
 let solucaoOtima;
+let velocidadeBusca = 10;
 
 //pega dados do JSON
 async function pegarJSON() {
@@ -24,6 +25,9 @@ window.onload = async function() {
     }else{
       document.querySelector('.popup-overlay').style.display = 'flex';
     }
+    var botaov10 = document.querySelectorAll('.v10');
+    botaov10[0].classList.add('velocidade-selecionada');
+
     selecionarElementosFinalEInicial();
 };
 
@@ -55,6 +59,22 @@ function selecionarElementosFinalEInicial(){
     };
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var botoesVelocidade = document.querySelectorAll('.velocidade');
+  
+  botoesVelocidade.forEach(function(botao) {
+    botao.addEventListener('click', function() {
+      botoesVelocidade.forEach(function(b) {
+        b.classList.remove('velocidade-selecionada');
+      });
+
+      velocidadeBusca = parseInt(botao.getAttribute('data-valor'));
+      
+      botao.classList.add('velocidade-selecionada');
+    });
+  });
+});
 
 //remove ou adiciona classes css no elemento passado
 function removeOrAddClass(elemento, classes, isRemove){

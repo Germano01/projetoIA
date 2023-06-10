@@ -492,3 +492,51 @@ hr {
 #solucoes, #solucao-otima{
     padding-left: 25px;
 }
+
+/*velocidade botoes*/
+
+
+#velocidade-busca {
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: 580px;
+    top: 200px;
+}
+
+#velocidade-busca p{
+    margin-bottom: 10px;
+}
+
+.velocidades {
+    display: flex;
+    position: relative;
+}
+
+.velocidade {
+    margin-right: 0px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.v0{
+    background-color: #e3e1e1;
+}
+
+.v10{
+    background-color: #d1d1d1;
+}
+
+.v500{
+    background-color: #bababa;
+}
+
+.v1000{
+    background-color: #a4a4a4;
+}
+
+.velocidade-selecionada {
+    background-color: #081132;
+    color: white;
+}
+  

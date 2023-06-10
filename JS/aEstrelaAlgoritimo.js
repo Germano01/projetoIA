@@ -51,7 +51,7 @@ async function executarAlgoritmo(elemento) {
     }
     setTimeout(function() {
       executarAlgoritmo(itemMenor.elemento);
-    }, 10);
+    }, velocidadeBusca);
   }
 
   //abre os nós adjacentes do nó passado no parametro
