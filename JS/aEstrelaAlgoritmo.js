@@ -1,11 +1,35 @@
+let elementosPressionados = [];
+let elementosJson;
+let opened = [];
+let closed = []; 
+let final;
+let solucaoOtima;
+let velocidadeBusca = 10;
+
 //inicia a busca, limpando tabela e iniciando com o primeiro nó
-function fazerBusca(){
-    if(elementosPressionados.length != 2){
-      alert("Selecione 2 elementos!");
-      return;
+function fazerBusca(array){
+    console.log("entrei fazerBusca")
+    //um array será enviado cada seja o arquivo "provaHeuristica.js" chamando
+    let isProvarHeuristica = false;
+    if(array != ''){
+      elementosPressionados = array;
+      isProvarHeuristica = true;
     }
-    document.getElementById('caminhos-solucoes').style.display = 'block';
-    limparDados();
+    else{
+      if(elementosPressionados.length != 2){
+        console.log('Selecione 2 elementos! --' + elementosPressionados)
+        //alert("Selecione 2 elementos!");
+        return;
+      }
+    }
+    if(!isProvarHeuristica){
+      document.getElementById('caminhos-solucoes').style.display = 'block';
+      limparDados();
+    }else{
+      opened = [];
+      closed = [];
+    }    
+    // ------------------------
     const noFechado = new No(elementosPressionados[0], 0, 0, 0, null);
     closed.push(noFechado);
     final = elementosPressionados[1];
@@ -20,16 +44,22 @@ async function executarAlgoritmo(elemento) {
       return;
     }
     await abrirAdjacente(elemento); 
+    // ------------------------
     mostrarListasNaTela()
+    // ------------------------ fim
     let itemMenor = opened[0];
+    // ------------------------
     removeOrAddClass(itemMenor.elemento, ["no-aberto"], true);
-    removeOrAddClass(itemMenor.elemento, ["visitado"], false);   
+    removeOrAddClass(itemMenor.elemento, ["visitado"], false); 
+    // ------------------------  
     closed.push(itemMenor);
     opened.splice(0, 1);
     if(itemMenor.elemento == final){
       solucaoOtima = await itemMenor.getSolucaoOtima([], 0);
+      console.log(solucaoOtima)
       const result = solucaoOtima.split(" -> ");
       sessionStorage.setItem('caminho', result);
+      // ------------------------
       pintarCaminho(result);
       itemMenor.getOutrasSolucoes("",0);
       opened.forEach(function (item) {
@@ -38,6 +68,7 @@ async function executarAlgoritmo(elemento) {
         }
       });  
       mostrarListasNaTela()
+      // ------------------------
       return
     }
     setTimeout(function() {
@@ -80,7 +111,9 @@ async function abrirAdjacente(elemento) {
               if(!hasAdjacente){
                 opened.push(elementoAtual);
                 ordenarOpened();
+                // ------------------------
                 removeOrAddClass(adjacente, ["no-aberto"], false);
+                // ------------------------
               }
             }
           }

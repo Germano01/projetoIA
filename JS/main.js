@@ -1,10 +1,4 @@
-let elementosPressionados = [];
-let elementosJson;
-let opened = [];
-let closed = [];
-let final;
-let solucaoOtima;
-let velocidadeBusca = 10;
+
 
 //pega dados do JSON
 async function pegarJSON() {

@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
 	<link rel="stylesheet" type="text/css" href="CSS/arvore_style.css">
 	<script src="JS/arvore.js"></script>
-	<script src="JS/jquery-3.7.0.js"></script>"
+	<script src="JS/jquery-3.7.0.js"></script>
 	<title>Heurística - Tabela Periódica</title>
 </head>
 
@@ -647,7 +647,7 @@
 	<p id="elementoSelecionadoFinal"><br>Elemento Final</p><br>
 
 	<div class="opcoes">
-		<button id="botao-buscar" onclick="fazerBusca()">Buscar</button>
+		<button id="botao-buscar" onclick="fazerBusca('')">Buscar</button>
 		<button id="open-modal" onclick="openModal('arvore')">Exibir Árvore</button>
 		<button id="grafo-modal" onclick="executarGrafo()">Exibir Grafo</button>
 	</div>
@@ -705,7 +705,7 @@
 		console.log(caminho)
 		$.ajax({
 			type: 'POST',
-			url: 'executaGrafo.php',
+			url: 'executarGrafo.php',
 			data: "caminho="+caminho
 		}).done(function(resposta) {
 				console.log(resposta);
