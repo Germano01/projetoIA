@@ -1,3 +1,16 @@
+import sys
+import json
+import matplotlib.pyplot as plt
+import networkx as nx
+
+# PACOTES NECESSÁRIOS PARA VISUALIZAR O GRAFO (dar o comando na máquina para instalar)
+# pip install matplotlib
+# pip install networkx
+
+# Pega argumentos passados pelo "executaGrafo.php"
+argFromIAprojeto = sys.argv[1]
+caminho = list(argFromIAprojeto.split(","))
+
 json_elementos = '''
 {
     "H": {
@@ -794,3 +807,50 @@ json_elementos = '''
     }
   }
 '''
+
+elementos = json.loads(json_elementos)
+
+# ARQUIVO NOS.PY
+g = nx.Graph()
+# Adiciona os nós
+for i in elementos.keys():
+    simbolo = elementos[i]["simbolo"]
+    m = elementos[i]["numeroAtomico"]
+    gr = elementos[i]["grupo"]
+    p = elementos[i]["periodo"]
+    g.add_node(simbolo, numeroAtomico=m, grupo=gr, periodo=p)
+
+# Definir posições no grafo
+for i in g.nodes():
+    grupo = elementos[i]["grupo"]
+    #como são 7 periodos, subtrair por 8 inverte a tabela para ela ficar de cima para baixo
+    periodo = 8 - elementos[i]["periodo"]
+    posicao = (grupo, periodo)
+    nx.set_node_attributes(g, {i: {"posicao": posicao}})
+
+
+# Adiciona as arestas
+for i in elementos.keys():
+    simbolo = elementos[i]["simbolo"]
+    adjacentes = elementos[i]['adjacentes']
+    for adjacente in adjacentes:
+        if not g.has_edge(simbolo, adjacente) and not g.has_edge(adjacente, simbolo):
+            valor1 = elementos[simbolo]["numeroAtomico"]
+            valor2 = elementos[adjacente]["numeroAtomico"]
+            g.add_edge(simbolo, adjacente, custo=(valor1+valor2))
+
+# Gera grafo
+pos = nx.get_node_attributes(g, "posicao")
+peso = nx.get_edge_attributes(g, "custo")
+node_colors = ['#FFFFFF'] * len(g)
+
+# Lista dos nós que terão a cor vermelha
+for no in caminho:
+    node_colors[list(g.nodes).index(no)] = 'lightgreen'
+
+plt.figure("Grafo tabela periodica", figsize=(40,50))
+nx.draw_networkx(g, pos, node_size=300,node_color=node_colors, with_labels=True, font_size=10)
+nx.draw_networkx_edges(g, pos, edge_color='gray')
+nx.draw_networkx_edge_labels(g, pos, edge_labels=peso, font_size=8)
+plt.axis("off")
+plt.show()

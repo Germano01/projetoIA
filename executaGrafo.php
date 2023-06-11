@@ -4,7 +4,7 @@ $IAprojetoLocation = str_replace('\\','/',$IAprojetoLocation);
 
 if(isset($_POST['caminho'])) {
     $caminho = $_POST['caminho'];
-    $shell = "python {$IAprojetoLocation}Python/teste.py \"{$caminho}\"";
-    echo $shell;die;
-    exec($shell);
+    $shell = "python {$IAprojetoLocation}Python/geraGrafo.py \"{$caminho}\"";
+    echo $shell;
+    exec($shell);die;
 }
