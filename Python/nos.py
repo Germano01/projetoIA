@@ -51,7 +51,7 @@ def heuristica(g, no_inicial, no_objetivo):
         grupo_objetivo = g.nodes[no_objetivo]['grupo']
         periodo_objetivo = g.nodes[no_objetivo]['periodo']
 
-        h1 = abs((0.4*grupo_objetivo) * (0.6*periodo_objetivo)) - ((0.4*grupo_inicial) * (0.6*periodo_inicial))
+        h1 = abs((0.3*grupo_objetivo) * (0.7*periodo_objetivo)) - ((0.3*grupo_inicial) * (0.7*periodo_inicial))
         h2 = abs(numero_atomica_objetivo - numero_atomica_inicial)
         h3 = (h1 + h2) / 2
         # função de avaliação

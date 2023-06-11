@@ -4,14 +4,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="caminho/para/o/seu/icone.ico" type="image/x-icon">
+	<!-- <link rel="icon" href="caminho/para/o/seu/icone.ico" type="image/x-icon"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 	integrity="sha512-..." crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
 	<link rel="stylesheet" type="text/css" href="CSS/arvore_style.css">
 	<script src="JS/arvore.js"></script>
-	<script src="JS/executaGrafo.js"></script>
+	<script src="JS/jquery-3.7.0.js"></script>"
 	<title>Heurística - Tabela Periódica</title>
 </head>
 
@@ -648,7 +648,8 @@
 
 	<div class="opcoes">
 		<button id="botao-buscar" onclick="fazerBusca()">Buscar</button>
-		<button id="open-modal" onclick="openModal()">Exibir Árvore</button>
+		<button id="open-modal" onclick="openModal('arvore')">Exibir Árvore</button>
+		<button id="grafo-modal" onclick="executarGrafo()">Exibir Grafo</button>
 	</div>
 
 	<div id="caminhos-solucoes">
@@ -697,6 +698,26 @@
 <script src="./JS/modal.js"></script>
 <script src="./JS/no.js"></script>
 <script src="./JS/arvore.js"></script>
+<script>
+	function executarGrafo() {
+		var caminho = sessionStorage.getItem('caminho');
+		caminho = caminho.split(",");
+		console.log(caminho)
+		$.ajax({
+			type: 'POST',
+			url: 'executaGrafo.php',
+			data: "caminho="+caminho
+		}).done(function(resposta) {
+				console.log(resposta);
+
+			}).fail(function(jqXHR, textStatus ) {
+				console.log("Request failed: " + textStatus);
+
+			}).always(function() {
+				console.log("completou");
+			});
+	}
+</script>
 
 </body>
 

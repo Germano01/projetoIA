@@ -29,6 +29,7 @@ async function executarAlgoritmo(elemento) {
     if(itemMenor.elemento == final){
       solucaoOtima = await itemMenor.getSolucaoOtima([], 0);
       const result = solucaoOtima.split(" -> ");
+      sessionStorage.setItem('caminho', result);
       pintarCaminho(result);
       itemMenor.getOutrasSolucoes("",0);
       opened.forEach(function (item) {

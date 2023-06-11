@@ -51,6 +51,16 @@ li{
     cursor: pointer;
 }
 
+#grafo-modal {
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(35, 146, 211);
+    color: white;
+    cursor: pointer;
+}
+
 #botao-buscar {
     font-size: 20px;
     padding: 10px;
