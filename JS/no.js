@@ -9,7 +9,7 @@ class No {
   
     getCustoReal(custoPai) {
         this.custoReal =  elementosJson[this.elemento].numeroAtomico +
-            elementosJson[this.pai].numeroAtomico
+            elementosJson[this.pai.elemento].numeroAtomico
         if (custoPai != null) {
             this.custoReal = this.custoReal + custoPai
         }
@@ -35,6 +35,12 @@ class No {
       let resultado = Number((heuristica1 + heuristica2).toFixed(2));
       this.heuristica = resultado;
     }
+
+    calcularHeuristicaNaoAdmissivel() {
+      let heuristica1 = Math.abs(elementosJson[final].massaAtomica - elementosJson[this.elemento].massaAtomica)
+      let resultado = heuristica1;
+      this.heuristica = resultado;
+    }
   
     getSolucaoOtima(caminho, custo) {
       if (this.pai == null) {
@@ -42,21 +48,9 @@ class No {
         document.getElementById("solucao-otima").innerHTML= `${caminho} - (Custo: ${custo})`;
         return caminho;
       } else {
-        custo += elementosJson[this.elemento].numeroAtomico + elementosJson[this.pai].numeroAtomico;
+        custo += elementosJson[this.elemento].numeroAtomico + elementosJson[this.pai.elemento].numeroAtomico;
         caminho = " -> " + this.elemento + caminho;
-        let pai = this.pai;
-        let elementoPai = null;
-        closed.forEach((item) => {
-          if (item.elemento == pai) {
-            if (elementoPai != null) {
-              if (item.avaliacao < elementoPai.avaliacao) {
-                elementoPai = item;
-              }
-            } else {
-              elementoPai = item;
-            }
-          }
-        });
+        let elementoPai = this.pai;
         let resultado = elementoPai.getSolucaoOtima(caminho, custo);
         return resultado;
       }
@@ -71,14 +65,10 @@ class No {
         }
         return caminho;
       } else {
-        custo += elementosJson[this.elemento].numeroAtomico + elementosJson[this.pai].numeroAtomico;
+        custo += elementosJson[this.elemento].numeroAtomico + elementosJson[this.pai.elemento].numeroAtomico;
         caminho = " -> " + this.elemento + caminho;
-        let pai = this.pai;
-        closed.forEach((item) => {
-          if (item.elemento == pai) {
-             return item.getOutrasSolucoes(caminho, custo);
-          }
-        });
+        let elementoPai = this.pai;
+        return elementoPai.getOutrasSolucoes(caminho, custo);
       }
     }
   }

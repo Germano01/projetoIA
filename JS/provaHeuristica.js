@@ -18,7 +18,7 @@ async function testeTodasPossibilidadesElementos() {
             let elementoFim = elementosJson[key2].simbolo;
             let array = [elementoInicio, elementoFim];
             setTimeout(async function() {
-              fazerBusca(array);
+              fazerBusca(array, true);
             }, 30);
             
         }        

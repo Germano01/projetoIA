@@ -31,14 +31,15 @@ async function carregaArvore() {
         let contagemAdjacente = 0;
 
         for (let i = 0; i < Object.keys(arr).length; i++) {
-            nosRow += geraNo(arr[i].elemento, arr[i].pai, arr[i].avaliacao != 0 ? arr[i].avaliacao : '-');
+            let pai = arr[i].pai == null ? arr[i].pai : arr[i].pai.elemento
+            nosRow += geraNo(arr[i].elemento, pai, arr[i].avaliacao != 0 ? arr[i].avaliacao : '-');
             nosJaCriados.push(arr[i].elemento);
             
             verificaRemoverMergedListas(arr[i]);
 
             let adjacenteJaCriado = false;
             for (let j = 0; j < mergedListas.length; j++) {
-                if (mergedListas[j].pai === arr[i].elemento) {
+                if (mergedListas[j].pai.elemento === arr[i].elemento) {
                     for (let k = 0; k < Object.keys(adjacentes).length; k++) {
                         if(adjacentes[k].indice === mergedListas[j].indice){
                             adjacenteJaCriado = true;
