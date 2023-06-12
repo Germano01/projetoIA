@@ -37,8 +37,13 @@ class No {
     }
 
     calcularHeuristicaNaoAdmissivel() {
-      let heuristica1 = Math.abs(elementosJson[final].massaAtomica - elementosJson[this.elemento].massaAtomica)
-      let resultado = heuristica1;
+      let heuristica1 = (Math.abs(elementosJson[final].massaAtomica - elementosJson[this.elemento].massaAtomica));
+      let heuristica2 =
+        Math.abs(
+          elementosJson[final].numeroAtomico -
+            elementosJson[this.elemento].numeroAtomico
+        );
+      let resultado = heuristica1 * heuristica2;
       this.heuristica = resultado;
     }
   
