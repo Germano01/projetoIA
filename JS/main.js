@@ -3,7 +3,7 @@
 //pega dados do JSON
 async function pegarJSON() {
   try {
-    const response = await fetch('elementos.json');
+    const response = await fetch('../elementos.json');
     const data = await response.json();
     return data;
   } catch (error) {
