@@ -7,7 +7,16 @@ import networkx as nx
 # caso deseja se testar a heurística não admissível troque True por False
 
 argFromIAprojeto = sys.argv[1]
-argFromIAprojeto = bool(argFromIAprojeto)
+argFromIAprojeto = argFromIAprojeto.lower()
+
+if argFromIAprojeto == "true":
+    argFromIAprojeto = True
+elif argFromIAprojeto == "false":
+    argFromIAprojeto = False
+else:
+    print("Argumento inválido. Deve ser 'true' ou 'false'")
+    sys.exit(1)
+
 json_elementos = '''
 {
     "H": {
@@ -859,7 +868,7 @@ def heuristica(g, no_inicial, no_objetivo, admissivel):
             h2 = abs(numero_atomica_objetivo - numero_atomica_inicial)
             h3 = (h1 + h2)
         else:
-            h3 = abs(massa_atomica_objetivo-massa_atomica_inicial) * abs(numero_atomica_objetivo - numero_atomica_inicial)
+            h3 = abs(massa_atomica_inicial - massa_atomica_objetivo) * abs(numero_atomica_objetivo - numero_atomica_inicial)
         # função de avaliação
         hx = h3
     else:
@@ -897,4 +906,4 @@ for inicio in g.nodes():
         if hx > custo_total:
             print("ERROR")
             print(f"No inicio:{inicio}, No final: {final}\nH(x): {hx}, Custo: {custo_total}")
-            exit()
+            #exit()
