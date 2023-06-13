@@ -894,6 +894,7 @@ def custo_melhor_caminho(grafo, elementos):
 
 elementos = json.loads(json_elementos)
 g = gerar_grafo(elementos)
+heuristica_admissivel = True 
 # fazer todas as combinações de nos do grafo para testar heuristica
 for inicio in g.nodes():
     for final in g.nodes():
@@ -906,4 +907,8 @@ for inicio in g.nodes():
         if hx > custo_total:
             print("ERROR")
             print(f"No inicio:{inicio}, No final: {final}\nH(x): {hx}, Custo: {custo_total}")
+            heuristica_admissivel = False
             #exit()
+
+if(heuristica_admissivel):
+  print("A heurística é admissível.")
