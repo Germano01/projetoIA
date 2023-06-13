@@ -5,31 +5,17 @@ let closed = [];
 let final;
 let solucaoOtima;
 let velocidadeBusca = 10;
-let isProvarHeuristica = false;
 let isBuscaNormal = true;
 
 //inicia a busca, limpando tabela e iniciando com o primeiro nó
-function fazerBusca(array, buscaNormal){
+function fazerBusca(buscaNormal){
   isBuscaNormal = buscaNormal;  
-  //um array será enviado cada seja o arquivo "provaHeuristica.js" chamando
-    if(array != ''){
-      elementosPressionados = array;
-      isProvarHeuristica = true;
+    if(elementosPressionados.length != 2){
+      alert("Selecione 2 elementos!");
+      return;
     }
-    else{
-      if(elementosPressionados.length != 2){
-        alert("Selecione 2 elementos!");
-        return;
-      }
-    }
-    if(!isProvarHeuristica){
-      document.getElementById('caminhos-solucoes').style.display = 'block';
-      limparDados();
-    }else{
-      opened = [];
-      closed = [];
-    }    
-    // ------------------------
+    document.getElementById('caminhos-solucoes').style.display = 'block';
+    limparDados();
     const noFechado = new No(elementosPressionados[0], 0, 0, 0, null);
     closed.push(noFechado);
     final = elementosPressionados[1];
@@ -44,16 +30,10 @@ async function executarAlgoritmo(elemento) {
       return;
     }
     await abrirAdjacente(elemento); 
-    if(!isProvarHeuristica){
     mostrarListasNaTela()
-    }
-    // ------------------------ fim
     let itemMenor = opened[0];
-    if(!isProvarHeuristica){
     removeOrAddClass(itemMenor.elemento, ["no-aberto"], true);
     removeOrAddClass(itemMenor.elemento, ["visitado"], false); 
-    }
-    // ------------------------  
     closed.push(itemMenor);
     opened.splice(0, 1);
     if(itemMenor.elemento == final){
@@ -61,8 +41,6 @@ async function executarAlgoritmo(elemento) {
       console.log(solucaoOtima)
       const result = solucaoOtima.split(" -> ");
       sessionStorage.setItem('caminho', result);
-      // ------------------------
-      if(!isProvarHeuristica){
       pintarCaminho(result);
       itemMenor.getOutrasSolucoes("",0);
       opened.forEach(function (item) {
@@ -71,7 +49,6 @@ async function executarAlgoritmo(elemento) {
         }
       });  
       mostrarListasNaTela()
-    }
       return
     }
     setTimeout(function() {
@@ -123,11 +100,7 @@ async function abrirAdjacente(elemento) {
               if(!hasAdjacente){
                 opened.push(elementoAtual);
                 ordenarOpened();
-                // ------------------------
-                if(!isProvarHeuristica){
                 removeOrAddClass(adjacente, ["no-aberto"], false);
-                }
-                // ------------------------
               }
             }
           }

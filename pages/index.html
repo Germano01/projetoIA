@@ -647,8 +647,8 @@
 	<p id="elementoSelecionadoFinal"><br>Elemento Final</p><br>
 
 	<div class="opcoes">
-		<button id="botao-buscar" onclick="fazerBusca('', true)">Buscar</button>
-		<button id="botao-buscar" onclick="fazerBusca('', false)">Buscar (Heuristica não admissível)</button>
+		<button id="botao-buscar" onclick="fazerBusca('')">Buscar</button>
+		<button id="botao-buscar" onclick="fazerBusca('')">Buscar (Heuristica não admissível)</button>
 		<button id="open-modal" onclick="openModal('arvore')">Exibir Árvore</button>
 		<button id="grafo-modal" onclick="executarGrafo()">Exibir Grafo</button>
 	</div>
@@ -706,7 +706,7 @@
 		console.log(caminho)
 		$.ajax({
 			type: 'POST',
-			url: 'executarGrafo.php',
+			url: '../executarGrafo.php',
 			data: "caminho="+caminho
 		}).done(function(resposta) {
 				console.log(resposta);
