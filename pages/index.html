@@ -702,8 +702,13 @@
 <script>
 	function executarGrafo() {
 		var caminho = sessionStorage.getItem('caminho');
+		
+		if(!caminho){
+			alert("Faça a busca primeiro!");
+			return;
+		}
+		
 		caminho = caminho.split(",");
-		console.log(caminho)
 		$.ajax({
 			type: 'POST',
 			url: '../executarGrafo.php',
