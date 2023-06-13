@@ -1,11 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <style>
+        body {
+            background: #121212;
+            color: #fff;
+
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" />
+    <link rel="stylesheet" href="../CSS/material.css">
+    <title>Material - Heurística</title>
 </head>
+
 <body>
-    AQUI VEM A PÁGINA DE CALCULO
+
+    <section id="section1">
+
+        <div class="circle">
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> INÍCIO</a></li>
+                <li><a href="material.html"><i class="fas fa-robot"></i> MATERIAL</a></li>
+                <li><a href="#"><i class="fas fa-calculator"></i> CÁLCULO</a></li>
+                <li><a href="integrantes.html"><i class="fas fa-user"></i> GRUPO</a></li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="text">
+                <h3>Nossa Abordagem<br></h3>
+                <h1><span>Heurística</span></h1>
+
+                <p> Heurística 1: Diferença de pesos (Periodo x Familia)<br>
+                    <b>H1 = |((Gf * 0.3) * (Pf * 0.7)) - ((Gx * 0.3) * (Px * 0.7))|</b>
+                    <br><br><i>Teorizado levando em conta a correlação que o produto entre o período e a família possui em
+                    relação ao custo real, ou seja, o número de prótons.</i>
+                    <br><br>
+                    <hr> 
+                    <br>
+                    Heurística 2: Diferença de números atômicos<br>
+                    <b>H2 = |NAf - NAx|</b>
+                    <br><br><i>Idealizado levando em consideração a proporcionalidade direta entre a diferença dos números
+                    atômicos e o custo real.</i> 
+                    <br><br>
+                    <hr> 
+                    <br>
+                    Função Heurística<br>
+                    <b>H(x) = H1 + H2</b>
+                    <br><br><i> Função criada baseando-se nas heurísticas propostas, possui como objetivo procurar o caminho ótimo entre dois elementos.</i>
+
+                </p>
+
+
+            </div>
+        </div>
+
+        <div class="boxImg">
+            <img src="../img/arquimenedes.png" alt="">
+        </div>
+
+    </section>
+
+
 </body>
+
 </html>
